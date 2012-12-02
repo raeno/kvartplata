@@ -1,1 +1,12 @@
 <h1>Kvartplata project</h1>
+
+
+<h2>Новый отчет</h2>
+
+<%= form_for @metric, :url => url_for(:controller => 'home', :action => 'save_report') do |f| %>
+  <%= f.text_field :cold_counter_kitchen %>
+  <%= f.text_field :hot_counter_kitchen %>
+  <%= f.text_field :cold_counter_bathroom %>
+  <%= f.text_field :hot_counter_bathroom %>
+  <%= f.submit %>
+<% end %>

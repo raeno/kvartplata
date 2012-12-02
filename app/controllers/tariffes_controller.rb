@@ -2,7 +2,7 @@ class TariffesController < ApplicationController
   # GET /tariffes
   # GET /tariffes.json
   def index
-    @tariffes = Tariffe.all
+    @tariffes = Tariff.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class TariffesController < ApplicationController
   # GET /tariffes/1
   # GET /tariffes/1.json
   def show
-    @tariffe = Tariffe.find(params[:id])
+    @tariffe = Tariff.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class TariffesController < ApplicationController
   # GET /tariffes/new
   # GET /tariffes/new.json
   def new
-    @tariffe = Tariffe.new
+    @tariffe = Tariff.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class TariffesController < ApplicationController
 
   # GET /tariffes/1/edit
   def edit
-    @tariffe = Tariffe.find(params[:id])
+    @tariffe = Tariff.find(params[:id])
   end
 
   # POST /tariffes
   # POST /tariffes.json
   def create
-    @tariffe = Tariffe.new(params[:tariffe])
+    @tariffe = Tariff.new(params[:tariffe])
 
     respond_to do |format|
       if @tariffe.save
@@ -56,7 +56,7 @@ class TariffesController < ApplicationController
   # PUT /tariffes/1
   # PUT /tariffes/1.json
   def update
-    @tariffe = Tariffe.find(params[:id])
+    @tariffe = Tariff.find(params[:id])
 
     respond_to do |format|
       if @tariffe.update_attributes(params[:tariffe])
@@ -72,7 +72,7 @@ class TariffesController < ApplicationController
   # DELETE /tariffes/1
   # DELETE /tariffes/1.json
   def destroy
-    @tariffe = Tariffe.find(params[:id])
+    @tariffe = Tariff.find(params[:id])
     @tariffe.destroy
 
     respond_to do |format|
