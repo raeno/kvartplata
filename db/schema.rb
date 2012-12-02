@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20121202154806) do
     t.float    "hot_counter_kitchen"
     t.float    "cold_counter_bathroom"
     t.float    "hot_counter_bathroom"
-    t.float    "energy"
+    t.float    "energy_counter"
     t.datetime "month"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false

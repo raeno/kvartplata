@@ -1,0 +1,9 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  cold_counter_kitchen: "Kitchen: cold water"
+  cold_counter_bathroom: "Bathroom: cold water"
+  hot_counter_kitchen: "Kitchen: HOT water"
+  hot_counter_bathroom: "Bathroom: HOT water"
+  energy_counter: "Energy"

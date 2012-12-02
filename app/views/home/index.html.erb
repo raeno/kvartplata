@@ -3,10 +3,34 @@
 
 <h2>Новый отчет</h2>
 
-<%= form_for @metric, :url => url_for(:controller => 'home', :action => 'save_report') do |f| %>
-  <%= f.text_field :cold_counter_kitchen %>
-  <%= f.text_field :hot_counter_kitchen %>
-  <%= f.text_field :cold_counter_bathroom %>
-  <%= f.text_field :hot_counter_bathroom %>
-  <%= f.submit %>
-<% end %>
+<div>
+    <%= form_for @metric, :url => url_for(:controller => 'home', :action => 'save_report') do |f| %>
+
+      <p>
+          <%= f.label t(:cold_counter_kitchen) %>
+          <%= f.text_field :cold_counter_kitchen %>
+      </p>
+
+      <p>
+          <%= f.label t(:hot_counter_kitchen) %>
+          <%= f.text_field :hot_counter_kitchen %>
+      </p>
+
+      <p>
+          <%= f.label t(:cold_counter_bathroom) %>
+          <%= f.text_field :cold_counter_bathroom %>
+      </p>
+
+      <p>
+          <%= f.label t(:hot_counter_bathroom) %>
+          <%= f.text_field :hot_counter_bathroom %>
+      </p>
+
+      <p>
+          <%= f.label t(:energy_counter) %>
+          <%= f.text_field :energy_counter %>
+      </p>
+
+      <%= f.submit %>
+    <% end %>
+</div>

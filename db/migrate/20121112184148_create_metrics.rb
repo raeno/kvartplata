@@ -5,7 +5,7 @@ class CreateMetrics < ActiveRecord::Migration
       t.float :hot_counter_kitchen
       t.float :cold_counter_bathroom
       t.float :hot_counter_bathroom
-      t.float :energy
+      t.float :energy_counter
       t.datetime :month
       t.timestamps
     end

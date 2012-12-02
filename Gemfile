@@ -7,8 +7,11 @@ gem 'rails', '3.2.8'
 
 group :development, :test do
   gem 'sqlite3','1.3.5'
-  gem 'debugger'
 
+  gem 'linecache19', '>= 0.5.13', :git => 'https://github.com/robmathews/linecache19-0.5.13.git'
+  gem 'debugger-linecache'
+  gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
+  gem 'ruby-debug-ide', '>= 0.4.17.beta14'
 end
 
 # Gems used only for assets and not required
@@ -25,6 +28,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
