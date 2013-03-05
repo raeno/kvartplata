@@ -11,6 +11,28 @@
     </div>
   <% end %>
 
+
+    <div class="field">
+      <%= f.label :cold_counter_kitchen %><br />
+      <%= f.text_field :cold_counter_kitchen %>
+    </div>
+    <div class="field">
+      <%= f.label :hot_counter_kitchen %><br />
+      <%= f.text_field :hot_counter_kitchen, rows: 6 %>
+    </div>
+    <div class="field">
+      <%= f.label :cold_counter_bathroom %><br />
+      <%= f.text_field :cold_counter_bathroom %>
+    </div>
+    <div class="field">
+      <%= f.label :hot_counter_bathroom %><br />
+      <%= f.text_field :hot_counter_bathroom %>
+    </div>
+    <div class="field">
+      <%= f.label :energy_counter %><br />
+      <%= f.text_field :energy_counter %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

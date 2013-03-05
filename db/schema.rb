@@ -14,8 +14,14 @@
 ActiveRecord::Schema.define(:version => 20130305155200) do
 
   create_table "metrics", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.float    "cold_counter_kitchen"
+    t.float    "hot_counter_kitchen"
+    t.float    "cold_counter_bathroom"
+    t.float    "hot_counter_bathroom"
+    t.float    "energy_counter"
+    t.datetime "month"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "tariffs", :force => true do |t|
