@@ -1,23 +1,23 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.12'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+
 
 group :development, :test do
-  gem 'sqlite3','1.3.5'
-
-  gem 'linecache19', '>= 0.5.13', :git => 'https://github.com/robmathews/linecache19-0.5.13.git'
-  gem 'debugger-linecache'
-  gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
-  gem 'ruby-debug-ide', '>= 0.4.17.beta14'
+  gem 'sqlite3'
+  #gem 'linecache19', '>= 0.5.13', :git => 'https://github.com/robmathews/linecache19-0.5.13.git'
+  #gem 'debugger-linecache'
+  #gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
+  #gem 'ruby-debug-ide', '>= 0.4.17.beta14'
 end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'therubyracer'
+
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
 
@@ -28,6 +28,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'execjs'
 
 
 # To use ActiveModel has_secure_password

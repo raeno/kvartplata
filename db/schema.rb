@@ -11,25 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121202154806) do
+ActiveRecord::Schema.define(:version => 20130305155200) do
 
   create_table "metrics", :force => true do |t|
-    t.float    "cold_counter_kitchen"
-    t.float    "hot_counter_kitchen"
-    t.float    "cold_counter_bathroom"
-    t.float    "hot_counter_bathroom"
-    t.float    "energy_counter"
-    t.datetime "month"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tariffs", :force => true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.float    "cold_water"
     t.float    "hot_water"
     t.float    "energy"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.float    "utilities"
     t.text     "comments"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -1,6 +1,9 @@
 Kvartplata::Application.routes.draw do
 
-  root :to => "home#index"
+  resources :metrics
+
+
+  root :to => "metrics#new"
 
   resources :tariffes
 

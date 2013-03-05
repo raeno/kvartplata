@@ -8,7 +8,35 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="container">
+
+    <header>
+      <hgroup>
+        <h1>Kvartplata</h1>
+
+      </hgroup>
+    </header>
+
+
+    <section class="content">
+      <div class='report'>
+        <%= yield %>
+      </div>
+    </section>
+
+    <aside class="aside">
+      <section class='side_widget'>
+        <h3>Previous reports</h3>
+      </section>
+
+      <section>
+        <h3>Tariffs</h3>
+      </section>
+
+    </aside>
+
+    <footer></footer>
+</div>
 
 </body>
 </html>
