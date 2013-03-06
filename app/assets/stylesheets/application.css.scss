@@ -72,6 +72,20 @@ body {
 
 }
 
+.field_with_errors {
+  display: inline;
+
+  .message {
+    color:  red;
+    padding-left: 5px;
+    font-size: 12px;
+
+  }
+
+}
+
+
+
 .clear {
   clear: both;
 }

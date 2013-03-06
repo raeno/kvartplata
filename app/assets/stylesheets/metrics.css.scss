@@ -1,0 +1,45 @@
+// Place all the styles related to the metrics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.metric_form {
+  fieldset {
+    background: skyblue;
+
+    legend {
+      color: darkblue;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+    }
+  }
+
+  form {
+    label {
+      width: 9em;
+      float: left;
+      display: block;
+      padding-bottom: 1.2em;
+    }
+
+    .field, .actions, h4 {
+      clear: left;
+    }
+
+    h4 {
+      padding-top: 0.6em;
+    }
+
+    input {
+      margin-left: 1em;
+      float: left;
+    }
+
+    .submit {
+      margin-left: 4em;
+    }
+
+    br {
+      display: none;
+    }
+  }
+}
