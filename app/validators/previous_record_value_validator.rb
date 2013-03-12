@@ -1,8 +1,11 @@
 class PreviousRecordValueValidator < ActiveModel::EachValidator
   def validate_each(record, attr, value)
-    unless value >= record.previous_record.send(attr)
-      record.errors.add(attr, "must be greater than #{record.previous_record.send(attr)}")
+    unless record.previous_record.nil?
+      unless value >= record.previous_record.send(attr)
+        record.errors.add(attr, "must be greater than #{record.previous_record.send(attr)}")
+      end
     end
+
   end
 end
 

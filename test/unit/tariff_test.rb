@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TariffeTest < ActiveSupport::TestCase
+class TariffTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
