@@ -23,7 +23,6 @@ set :ssh_options, { :forward_agent => true }
 set :deploy_via, :remote_cache
 
 set :user,        'raeno'
-set :password,    'j74HVK5w'
 
 set :deploy_to, "/home/#{user}/public_html/kvartplata"
 
