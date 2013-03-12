@@ -54,12 +54,17 @@ namespace :deploy do
 end
 
 
-after "deploy:update_code", :bundle_install
+after "deploy:update_code", :bundle_install, :copy_database_config
 after "deploy", "rvm:trust_rvmrc"
 
 desc 'install necessary prerequisites'
 task :bundle_install, :roles => :app do
   run "cd #{release_path} && bundle install"
+end
+
+desc 'copy database.yml from shared'
+task :copy_database_config do
+  run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
 end
 
 namespace :rvm do
