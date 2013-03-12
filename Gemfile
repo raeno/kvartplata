@@ -6,14 +6,6 @@ gem 'rvm'
 gem 'rvm-capistrano'
 
 
-group :development, :test do
-  gem 'sqlite3'
-  #gem 'linecache19', '>= 0.5.13', :git => 'https://github.com/robmathews/linecache19-0.5.13.git'
-  #gem 'debugger-linecache'
-  #gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
-  #gem 'ruby-debug-ide', '>= 0.4.17.beta14'
-end
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -29,9 +21,7 @@ group :assets do
 end
 
 
-group :production do
-  gem 'mysql2'
-end
+gem 'mysql2'
 
 gem 'jquery-rails'
 
