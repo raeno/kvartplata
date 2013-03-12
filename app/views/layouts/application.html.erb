@@ -27,6 +27,7 @@
     <aside class="aside">
       <section class='side_widget'>
         <h3>Previous reports</h3>
+        <%= render :partial => 'reports/report_link', :collection => last_reports, :as => :report  %>
       </section>
 
       <section>
