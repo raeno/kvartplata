@@ -21,5 +21,20 @@ class Metric < ActiveRecord::Base
     @previous ||= Metric.where('month < ?',month).last
   end
 
+  def -(value)
+     Metric.new(
+        :hot_counter_bathroom => self.hot_counter_bathroom - value.hot_counter_bathroom,
+        :hot_counter_kitchen => self.hot_counter_kitchen - value.hot_counter_kitchen,
+        :cold_counter_bathroom => self.cold_counter_bathroom - value.cold_counter_bathroom,
+        :cold_counter_kitchen => self.cold_counter_kitchen - value.cold_counter_kitchen,
+        :energy_counter => self.energy_counter - value.energy_counter,
+
+    )
+  end
+
+  def utilities
+    self.hot_counter_bathroom + self.hot_counter_kitchen + self.cold_counter_bathroom + self.cold_counter_kitchen
+  end
+
 
 end

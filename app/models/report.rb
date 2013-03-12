@@ -4,4 +4,12 @@ class Report < ActiveRecord::Base
   belongs_to :current_metric, class_name: 'Metric'
   belongs_to :previous_metric, class_name: 'Metric'
   belongs_to :tariff
+
+  def difference
+    current_metric - previous_metric
+  end
+
+  def utilities_diff
+    current_metric.utilities - previous_metric.utilities
+  end
 end
