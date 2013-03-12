@@ -10,7 +10,7 @@ Metric.delete_all
 Tariff.delete_all
 Report.delete_all
 
-Metric.create(
+old_metric = Metric.create(
     :cold_counter_kitchen => 10,
     :hot_counter_kitchen => 8,
     :cold_counter_bathroom => 12,
@@ -19,7 +19,7 @@ Metric.create(
     :month =>  3.month.ago
 )
 
-Metric.create(
+prev_metric = Metric.create(
     :cold_counter_kitchen => 12,
     :hot_counter_kitchen => 10,
     :cold_counter_bathroom => 15,
@@ -28,7 +28,7 @@ Metric.create(
     :month =>  2.month.ago
 )
 
-Metric.create(
+current_metric = Metric.create(
     :cold_counter_kitchen => 16,
     :hot_counter_kitchen => 12,
     :cold_counter_bathroom => 19,
@@ -37,7 +37,7 @@ Metric.create(
     :month =>  1.month.ago
 )
 
-Tariff.create(
+current_tariff = Tariff.create(
     :start_date => 5.month.ago,
     :cold_water => 12.74,
     :hot_water => 90.86,
@@ -52,10 +52,9 @@ Report.create(
     :utilities => 20,
     :energy => 50,
     :total => 140,
-    :current_metric_id => 3,
-    :previous_metric_id => 2,
-    :tariff_id => 1
-
+    :current_metric => current_metric,
+    :previous_metric => prev_metric,
+    :tariff => current_tariff
 )
 
 

@@ -12,6 +12,8 @@ class Metric < ActiveRecord::Base
   validates_that_greater_than_a_previous_value :cold_counter_kitchen, :cold_counter_bathroom,
                  :hot_counter_kitchen, :hot_counter_bathroom, :energy_counter
 
+  has_many :reports
+
 
 
 
