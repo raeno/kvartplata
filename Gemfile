@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 
-
+gem 'rvm'
+gem 'rvm-capistrano'
 
 
 group :development, :test do
@@ -27,6 +28,11 @@ group :assets do
   gem 'uglifier', '>= 1.2.3'
 end
 
+
+group :production do
+  gem 'mysql2'
+end
+
 gem 'jquery-rails'
 
 gem 'client_side_validations'
@@ -44,7 +50,7 @@ gem 'execjs'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

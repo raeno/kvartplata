@@ -6,9 +6,6 @@ Kvartplata::Application.routes.draw do
   root :to => "metrics#new"
 
   resources :tariffs
-
-  resources :reports
-
   match ":controller/:action"
 
 
