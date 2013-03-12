@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312060345) do
+ActiveRecord::Schema.define(:version => 20130312105800) do
 
   create_table "metrics", :force => true do |t|
     t.float    "cold_counter_kitchen"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(:version => 20130312060345) do
     t.datetime "month"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+  end
+
+  create_table "reports", :force => true do |t|
+    t.datetime "date"
+    t.float    "cold_water"
+    t.float    "hot_water"
+    t.float    "utilities"
+    t.float    "energy"
+    t.float    "total"
+    t.integer  "current_metric_id"
+    t.integer  "previous_metric_id"
+    t.integer  "tariff_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "tariffs", :force => true do |t|

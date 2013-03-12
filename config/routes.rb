@@ -1,5 +1,13 @@
 Kvartplata::Application.routes.draw do
 
+  get "reports/index"
+
+  get "reports/show"
+
+  get "reports_controller/index"
+
+  get "reports_controller/show"
+
   resources :metrics
 
 
