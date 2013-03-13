@@ -14,6 +14,8 @@ class Metric < ActiveRecord::Base
 
   has_many :reports, :foreign_key => 'current_metric_id'
 
+  attr_accessor :report
+
   after_save :create_report
 
 
@@ -47,6 +49,7 @@ class Metric < ActiveRecord::Base
   def create_report
     report = Report.from_metric(self)
     report.save unless report.nil?
+    self.report = report
   end
 
 end
