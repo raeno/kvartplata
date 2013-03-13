@@ -9,6 +9,9 @@ class Metric < ActiveRecord::Base
   validates_presence_of :cold_counter_kitchen, :cold_counter_bathroom,
                         :hot_counter_kitchen, :hot_counter_bathroom, :energy_counter
 
+  validates :cold_counter_kitchen, :cold_counter_bathroom, :hot_counter_kitchen,
+            :hot_counter_bathroom, :energy_counter, :numericality => { greater_than: 0.001}
+
   validates_that_greater_than_a_previous_value :cold_counter_kitchen, :cold_counter_bathroom,
                  :hot_counter_kitchen, :hot_counter_bathroom, :energy_counter
 
@@ -29,8 +32,7 @@ class Metric < ActiveRecord::Base
         :hot_counter_kitchen => hot_counter_kitchen - value.hot_counter_kitchen,
         :cold_counter_bathroom => cold_counter_bathroom - value.cold_counter_bathroom,
         :cold_counter_kitchen => cold_counter_kitchen - value.cold_counter_kitchen,
-        :energy_counter => energy_counter - value.energy_counter,
-
+        :energy_counter => energy_counter - value.energy_counter
     )
   end
 
@@ -45,6 +47,7 @@ class Metric < ActiveRecord::Base
   def total_hot_water
     hot_counter_bathroom + hot_counter_kitchen
   end
+
 
   def create_report
     report = Report.from_metric(self)
