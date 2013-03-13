@@ -1,0 +1,1 @@
+Simple rails application that helps work with your home utilities payments.
