@@ -15,7 +15,7 @@ class Report < ActiveRecord::Base
 
   def self.from_metric(metric)
     previous_metric = Metric.where('month < ?', metric.month).last
-    tariff = Tariff.used_in(metric.month)
+    tariff = Tariff.that_was(metric.month)
 
     return if previous_metric.nil? or tariff.nil?
 

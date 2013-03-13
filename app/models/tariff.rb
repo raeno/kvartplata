@@ -3,7 +3,7 @@ class Tariff < ActiveRecord::Base
                   :energy, :utilities, :comments
   has_many :reports
 
-  def self.used_in(month)
+  def self.that_was(month)
     Tariff.where('start_date <= :month AND end_date >= :month', month: month).last
   end
 end
