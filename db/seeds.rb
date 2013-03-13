@@ -10,7 +10,7 @@ Metric.delete_all
 Tariff.delete_all
 Report.delete_all
 
-current_tariff = Tariff.create(
+Tariff.create(
     :start_date => 5.month.ago,
     :end_date => 1000.years.since,
     :cold_water => 12.74,
