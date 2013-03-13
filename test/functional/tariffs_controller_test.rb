@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TariffsControllerTest < ActionController::TestCase
   setup do
-    @tariff = tariffs(:one)
+    @tariff = create(:tariff)
   end
 
   test "should get index" do
