@@ -20,6 +20,10 @@ group :assets do
   gem 'uglifier', '>= 1.2.3'
 end
 
+group :test, :development do
+  gem 'factory_girl_rails'
+end
+
 
 gem 'mysql2'
 

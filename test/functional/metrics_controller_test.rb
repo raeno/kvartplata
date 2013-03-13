@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MetricsControllerTest < ActionController::TestCase
   setup do
-    @metric = metrics(:one)
+    @metric = FactoryGirl.create(:metric)
   end
 
   test "should get index" do
