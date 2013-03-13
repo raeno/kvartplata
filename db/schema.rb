@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312105800) do
+ActiveRecord::Schema.define(:version => 20130313055800) do
 
   create_table "metrics", :force => true do |t|
     t.float    "cold_counter_kitchen"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130312105800) do
     t.datetime "month"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "report_id"
   end
 
   create_table "reports", :force => true do |t|

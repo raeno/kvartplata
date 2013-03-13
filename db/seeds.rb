@@ -39,11 +39,14 @@ current_metric = Metric.create(
 
 current_tariff = Tariff.create(
     :start_date => 5.month.ago,
+    :end_date => 1000.years.since,
     :cold_water => 12.74,
     :hot_water => 90.86,
     :utilities => 7.64,
     :energy => 3.23
 )
+
+=begin
 
 Report.create(
     :date => DateTime.now,
@@ -56,7 +59,7 @@ Report.create(
     :previous_metric => prev_metric,
     :tariff => current_tariff
 )
-
+=end
 
 
 
