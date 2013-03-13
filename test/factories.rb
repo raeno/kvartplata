@@ -31,8 +31,8 @@ FactoryGirl.define do
     date 1.month.ago
 
     factory :report_with_metrics do
-      association :current_metric, factory: :metric
       association :previous_metric, factory: :metric
+      association :current_metric, factory: :metric
     end
 
 
