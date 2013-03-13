@@ -37,9 +37,47 @@ class MetricTest < ActiveSupport::TestCase
 
       @simple_metric.send(method,3)
       assert @simple_metric.valid?
-
     end
   end
+
+  test 'difference of two metrics should be difference of counters' do
+
+    first_metric = build(:metric,cold_counter_kitchen: 10, hot_counter_kitchen: 10,
+                         cold_counter_bathroom: 10, hot_counter_bathroom: 10,
+                         energy_counter: 100)
+
+    second_metric = build(:metric, cold_counter_kitchen: 20,  hot_counter_kitchen: 30,
+                          cold_counter_bathroom: 40, hot_counter_bathroom: 50,
+                          energy_counter: 200)
+
+
+    difference = second_metric - first_metric
+
+    assert_in_epsilon 10, difference.cold_counter_kitchen
+    assert_in_epsilon 20, difference.hot_counter_kitchen
+    assert_in_epsilon 30, difference.cold_counter_bathroom
+    assert_in_epsilon 40, difference.hot_counter_bathroom
+
+    assert_in_epsilon 100, difference.energy_counter
+
+  end
+
+  test 'previous metric should be from previous month' do
+
+    Metric.delete_all
+
+    metrics = []
+
+    metrics << create(:metric, month: 3.month.ago)
+    metrics << create(:metric, month: 2.month.ago)
+    metrics << create(:metric, month: 1.month.ago)
+
+
+    prev = metrics[1].previous_record
+
+    assert_equal metrics[0], prev
+  end
+
 
 
 
