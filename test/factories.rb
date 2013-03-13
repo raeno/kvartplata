@@ -6,6 +6,9 @@ FactoryGirl.define do
     sequence(:hot_counter_bathroom) { |n| 15 + 2.4*n }
     sequence(:energy_counter) { |n| 621 + 123*n }
     sequence(:month) { |n| (10-n).month.ago }
+
+    report
+
   end
   
   factory :tariff do
@@ -16,4 +19,24 @@ FactoryGirl.define do
     utilities  7.64
     energy  3.23
   end
+
+
+  factory :report do
+
+    cold_water 62
+    hot_water 78
+    utilities 35
+    energy 182
+    total { cold_water + hot_water + utilities + energy }
+    date 1.month.ago
+
+    factory :report_with_metrics do
+      association :current_metric, factory: :metric
+      association :previous_metric, factory: :metric
+    end
+
+
+    tariff
+  end
+
 end

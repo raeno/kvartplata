@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MetricsControllerTest < ActionController::TestCase
   setup do
-    @metric = FactoryGirl.create(:metric)
+    @metric = create(:metric)
   end
 
   test "should get index" do
@@ -18,10 +18,10 @@ class MetricsControllerTest < ActionController::TestCase
 
   test "should create metric" do
     assert_difference('Metric.count') do
-      post :create, metric: {  }
+      post :create, metric: FactoryGirl.attributes_for(:metric)
     end
 
-    assert_redirected_to metric_path(assigns(:metric))
+    assert_redirected_to Report.last
   end
 
   test "should show metric" do

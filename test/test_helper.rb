@@ -8,6 +8,9 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
 
+  class Test::Unit::TestCase
+    include FactoryGirl::Syntax::Methods
+  end
 
 
 end
