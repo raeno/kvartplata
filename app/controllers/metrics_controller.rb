@@ -41,14 +41,14 @@ class MetricsController < ApplicationController
   # POST /metrics.json
   def create
     @metric = Metric.new(params[:metric])
-    @metric.month= DateTime.now
+    @metric.month= DateTime.today
 
     respond_to do |format|
       if @metric.save
         format.html { redirect_to @metric.report }
         format.json { render json: @metric, status: :created, location: @metric }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @metric.errors, status: :unprocessable_entity }
       end
     end
@@ -64,7 +64,7 @@ class MetricsController < ApplicationController
         format.html { redirect_to @metric, notice: 'Metric was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @metric.errors, status: :unprocessable_entity }
       end
     end
