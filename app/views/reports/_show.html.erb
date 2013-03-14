@@ -14,11 +14,11 @@
 
   <tbody>
 
-      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric } %>
+      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric, :is_diff => false } %>
 
-      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric } %>
+      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric, :is_diff => false } %>
 
-      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.difference } %>
+      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.difference, :is_diff => true } %>
 
 
       <!-- tariff -->
