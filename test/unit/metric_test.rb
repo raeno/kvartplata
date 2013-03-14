@@ -6,6 +6,11 @@ class MetricTest < ActiveSupport::TestCase
     @simple_metric = build(:metric)
   end
 
+  teardown do
+    Timecop.return
+    Metric.delete_all
+  end
+
   test 'utilities should be the sum of all water counters' do
     all_water_counters_sum = @simple_metric.cold_counter_kitchen + @simple_metric.hot_counter_kitchen +
                               @simple_metric.cold_counter_bathroom + @simple_metric.hot_counter_bathroom
@@ -78,6 +83,30 @@ class MetricTest < ActiveSupport::TestCase
     assert_equal metrics[0], prev
   end
 
+  test 'we do not need to pay if we already made payment' do
+    metric = create(:metric)
+
+    payment_day = metric.month.change(:day => Metric::PAYMENT_DAY)
+    Timecop.freeze payment_day-10.day
+    assert (not Metric.time_to_pay?)
+
+    Timecop.freeze payment_day
+    assert (not Metric.time_to_pay?)
+
+    Timecop.freeze payment_day+5.day
+    assert (not Metric.time_to_pay?)
+  end
+
+
+  test 'we do not need to pay if payment day is not near' do
+    Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 10))
+    assert (not Metric.time_to_pay?)
+  end
+
+  test 'we need to pay if payment day is near' do
+    Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 1))
+    assert  Metric.time_to_pay?
+  end
 
 
 
