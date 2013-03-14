@@ -1,4 +1,4 @@
-<h2>Отчет за <%= report.date.strftime('%B %Y') %></h2>
+<h2 class="main_header">Отчет за <%= report.date.strftime('%B %Y') %></h2>
 
 <table>
   <thead>
@@ -22,8 +22,8 @@
 
 
       <!-- tariff -->
-      <tr>
-        <td>тариф</td>
+      <tr class="single_line">
+        <td class="row_header">тариф</td>
         <td></td>
         <td><%= report.tariff.hot_water %></td>
         <td><%= report.tariff.cold_water %></td>
@@ -32,8 +32,8 @@
       </tr>
 
       <!-- total -->
-      <tr>
-        <td>стоимость</td>
+      <tr class="single_line">
+        <td class="row_header">стоимость</td>
         <td></td>
         <td><%= report.hot_water %></td>
         <td><%= report.cold_water %></td>

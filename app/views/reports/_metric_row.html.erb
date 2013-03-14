@@ -1,8 +1,8 @@
 <% row_header = is_diff ?  'разность' : metric.month.strftime('%B').downcase %>
 
-<tr>
-  <td class='report__row_header'><%= row_header %></td>
-  <td><% unless is_diff %> кухня <% end %></td>
+<tr class="metric">
+  <td rowspan="2" class='row_header'> <%= row_header %> </td>
+  <td class="counter_room">кухня</td>
   <td><%= metric.hot_counter_kitchen %></td>
   <td><%= metric.cold_counter_kitchen %></td>
   <td></td>
@@ -10,10 +10,12 @@
 </tr>
 
 <tr>
-  <td></td>
-  <td><% unless is_diff %> ванная <% end %></td>
+
+  <td class="counter_room">ванная</td>
   <td><%= metric.hot_counter_bathroom %></td>
   <td><%= metric.cold_counter_bathroom %></td>
   <td></td>
   <td></td>
 </tr>
+
+

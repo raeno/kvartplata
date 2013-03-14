@@ -1,3 +1,65 @@
 // Place all the styles related to the Reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.report {
+  .main_header {
+    color: royalblue;
+    font-size: 28px;
+    font-family: 'Open Sans';
+    font-weight: 300;
+  }
+
+  table {
+    text-align: center;
+    border-collapse: collapse;
+
+    thead {
+
+      tr {
+
+         th {
+           font-weight: 600;
+           font-size: 20px;
+           width: 16%;
+           padding-top: 1em;
+           padding-bottom: 0.5em;
+
+           border-bottom: 2px lightgray solid;
+         }
+      }
+    }
+
+    tbody {
+
+      .row_header{
+        font-size: 20px;
+        border-right: 1px lightgray solid;
+        padding-right: 0.3em;
+      }
+
+
+      .counter_room {
+        border-collapse: separate;
+        border-spacing: 10px 10px;
+        border-bottom:  1px gray solid;
+      }
+
+      tr > td {
+        padding-bottom: 1.0em;
+        padding-top: 0.6em;
+      }
+
+      td {
+        vertical-align: middle;
+        font-size: 16px;
+
+      }
+
+
+
+
+
+    }
+  }
+}
