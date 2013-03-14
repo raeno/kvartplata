@@ -14,62 +14,12 @@
 
   <tbody>
 
-      <!-- current month -->
-      <tr>
-        <td><%= report.current_metric.month.strftime('%B') %></td>
-        <td>кухня</td>
-        <td><%= report.current_metric.hot_counter_kitchen %></td>
-        <td><%= report.current_metric.cold_counter_kitchen %></td>
-        <td></td>
-        <td><%= report.current_metric.energy_counter %></td>
-      </tr>
+      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric } %>
 
-      <tr>
-        <td></td>
-        <td>ванная</td>
-        <td><%= report.current_metric.hot_counter_bathroom %></td>
-        <td><%= report.current_metric.cold_counter_bathroom %></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric } %>
 
-      <!-- previous month -->
-      <tr>
-        <td><%= report.previous_metric.month.strftime('%B') %></td>
-        <td>кухня</td>
-        <td><%= report.previous_metric.hot_counter_kitchen %></td>
-        <td><%= report.previous_metric.cold_counter_kitchen %></td>
-        <td></td>
-        <td><%= report.previous_metric.energy_counter %></td>
-      </tr>
+      <%= render :partial => 'reports/metric_row', :locals => { :metric => report.difference } %>
 
-      <tr>
-        <td></td>
-        <td>ванная</td>
-        <td><%= report.previous_metric.hot_counter_bathroom %></td>
-        <td><%= report.previous_metric.cold_counter_bathroom %></td>
-        <td></td>
-        <td></td>
-      </tr>
-
-      <!-- difference -->
-      <tr>
-        <td>разность</td>
-        <td>кухня</td>
-        <td><%= report.difference.hot_counter_kitchen %></td>
-        <td><%= report.difference.cold_counter_kitchen %></td>
-        <td><%= report.utilities_diff %></td>
-        <td><%= report.difference.energy_counter %></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td>ванная</td>
-        <td><%= report.difference.hot_counter_bathroom %></td>
-        <td><%= report.difference.cold_counter_bathroom %></td>
-        <td></td>
-        <td></td>
-      </tr>
 
       <!-- tariff -->
       <tr>
