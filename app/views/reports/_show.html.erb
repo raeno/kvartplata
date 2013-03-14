@@ -1,0 +1,96 @@
+<h2>Отчет за <%= report.date.strftime('%B %Y') %></h2>
+
+<table>
+  <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>ГВС</th>
+        <th>ХВС</th>
+        <th>Слив</th>
+        <th>Свет</th>
+      </tr>
+  </thead>
+
+  <tbody>
+
+      <!-- current month -->
+      <tr>
+        <td><%= report.current_metric.month.strftime('%B') %></td>
+        <td>кухня</td>
+        <td><%= report.current_metric.hot_counter_kitchen %></td>
+        <td><%= report.current_metric.cold_counter_kitchen %></td>
+        <td></td>
+        <td><%= report.current_metric.energy_counter %></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>ванная</td>
+        <td><%= report.current_metric.hot_counter_bathroom %></td>
+        <td><%= report.current_metric.cold_counter_bathroom %></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- previous month -->
+      <tr>
+        <td><%= report.previous_metric.month.strftime('%B') %></td>
+        <td>кухня</td>
+        <td><%= report.previous_metric.hot_counter_kitchen %></td>
+        <td><%= report.previous_metric.cold_counter_kitchen %></td>
+        <td></td>
+        <td><%= report.previous_metric.energy_counter %></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>ванная</td>
+        <td><%= report.previous_metric.hot_counter_bathroom %></td>
+        <td><%= report.previous_metric.cold_counter_bathroom %></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- difference -->
+      <tr>
+        <td>разность</td>
+        <td>кухня</td>
+        <td><%= report.difference.hot_counter_kitchen %></td>
+        <td><%= report.difference.cold_counter_kitchen %></td>
+        <td><%= report.utilities_diff %></td>
+        <td><%= report.difference.energy_counter %></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>ванная</td>
+        <td><%= report.difference.hot_counter_bathroom %></td>
+        <td><%= report.difference.cold_counter_bathroom %></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- tariff -->
+      <tr>
+        <td>тариф</td>
+        <td></td>
+        <td><%= report.tariff.hot_water %></td>
+        <td><%= report.tariff.cold_water %></td>
+        <td><%= report.tariff.utilities %></td>
+        <td><%= report.tariff.energy %></td>
+      </tr>
+
+      <!-- total -->
+      <tr>
+        <td>стоимость</td>
+        <td></td>
+        <td><%= report.hot_water %></td>
+        <td><%= report.cold_water %></td>
+        <td><%= report.utilities %></td>
+        <td><%= report.energy %></td>
+      </tr>
+  </tbody>
+</table>
+
+<p>Total:  <%= report.total %></p>
