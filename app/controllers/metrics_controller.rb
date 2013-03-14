@@ -41,7 +41,7 @@ class MetricsController < ApplicationController
   # POST /metrics.json
   def create
     @metric = Metric.new(params[:metric])
-    @metric.month= DateTime.today
+    @metric.month= DateTime.now
 
     respond_to do |format|
       if @metric.save
