@@ -21,6 +21,8 @@ class Metric < ActiveRecord::Base
 
   after_save :create_report
 
+  PAYMENT_DAY = 20
+
 
   def previous_record
     @previous ||= Metric.where('month < ?',month).last

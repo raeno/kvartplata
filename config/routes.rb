@@ -1,13 +1,14 @@
 Kvartplata::Application.routes.draw do
 
 
+
   resources :reports,  :metrics, :tariffs
 
 
-  root :to => "metrics#new"
+  root :to => 'welcome#index'
 
 
-  match ":controller/:action"
+  match ':controller/:action'
 
 
   # The priority is based upon order of creation:
