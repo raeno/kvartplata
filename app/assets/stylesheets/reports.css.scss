@@ -38,11 +38,9 @@
         padding-right: 0.3em;
       }
 
-
-      .counter_room {
-        border-collapse: separate;
-        border-spacing: 10px 10px;
-        border-bottom:  1px gray solid;
+      .metric_separator {
+        padding-top: 0;
+        padding-bottom: 0.7em;
       }
 
       tr > td {

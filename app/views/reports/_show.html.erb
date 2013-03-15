@@ -16,10 +16,16 @@
 
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric, :is_diff => false } %>
 
+
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric, :is_diff => false } %>
+
 
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.difference, :is_diff => true } %>
 
+
+      <tr>
+        <td colspan="5" class='metric_separator'></td>
+      </tr>
 
       <!-- tariff -->
       <tr class="single_line">
@@ -31,16 +37,20 @@
         <td><%= report.tariff.energy %></td>
       </tr>
 
+      <tr>
+        <td colspan="5" class='metric_separator'></td>
+      </tr>
+
       <!-- total -->
       <tr class="single_line">
         <td class="row_header">стоимость</td>
         <td></td>
-        <td><%= report.hot_water %></td>
-        <td><%= report.cold_water %></td>
-        <td><%= report.utilities %></td>
-        <td><%= report.energy %></td>
+        <td><%=  report.hot_water %></td>
+        <td><%=  report.cold_water %></td>
+        <td><%=  report.utilities %></td>
+        <td><%=  report.energy %></td>
       </tr>
   </tbody>
 </table>
 
-<p>Total:  <%= report.total %></p>
+<p>Total:  <%= number_to_currency report.total %></p>
