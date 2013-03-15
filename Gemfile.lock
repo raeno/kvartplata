@@ -102,6 +102,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.2)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     rvm (1.11.3.6)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
@@ -141,6 +143,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 3.2.12)
+  russian (~> 0.6.0)
   rvm
   rvm-capistrano
   sass-rails (~> 3.2.5)

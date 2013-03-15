@@ -34,6 +34,7 @@ module Kvartplata
     config.i18n.load_path += Dir[path]
     config.i18n.default_locale = :ru
 
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

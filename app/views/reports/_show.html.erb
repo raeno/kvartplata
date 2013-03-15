@@ -1,4 +1,4 @@
-<h2 class="main_header">Отчет за <%= report.date.strftime('%B %Y') %></h2>
+<h2 class="main_header">Отчет за <%= l(report.date,:format => :month_year).mb_chars.downcase.to_s %></h2>
 
 <table>
   <thead>
@@ -24,7 +24,7 @@
 
 
       <tr>
-        <td colspan="5" class='metric_separator'></td>
+        <td colspan="6" class='metric_separator'></td>
       </tr>
 
       <!-- tariff -->
@@ -38,11 +38,11 @@
       </tr>
 
       <tr>
-        <td colspan="5" class='metric_separator'></td>
+        <td colspan="6" class='cost_separator '></td>
       </tr>
 
       <!-- total -->
-      <tr class="single_line">
+      <tr class="single_line total_cost">
         <td class="row_header">стоимость</td>
         <td></td>
         <td><%=  report.hot_water %></td>

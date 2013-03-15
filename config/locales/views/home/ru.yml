@@ -9,13 +9,6 @@ ru:
    hot_counter_bathroom: "Bathroom: HOT water"
    energy_counter: "Energy"
 
-   number:
-    currency:
-      format:
-        unit: "руб."
-        precision: 2
-        separator: '.'
-        delimeter: ' '
-        format: '%n %u'
+
 
 

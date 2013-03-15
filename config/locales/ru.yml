@@ -1,0 +1,5 @@
+ru:
+  time:
+    formats:
+      month:  "%B"
+      month_year: "%B %Y"

@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 
 gem 'rvm'
 gem 'rvm-capistrano'
+gem 'russian', '~> 0.6.0'
 
 
 # Gems used only for assets and not required
