@@ -38,9 +38,22 @@
         padding-right: 0.3em;
       }
 
-      .metric_separator {
+      @mixin separator($bottom) {
         padding-top: 0;
-        padding-bottom: 0.7em;
+        padding-bottom: $bottom;
+      }
+
+      .metric_separator {
+        @include separator(0.7em);
+      }
+
+      .cost_separator {
+        @include separator(0.1em);
+        border-bottom: 2px lightgray solid;
+      }
+
+      .total_cost td {
+        padding-top: 1em;
       }
 
       tr > td {
