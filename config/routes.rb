@@ -1,14 +1,11 @@
 Kvartplata::Application.routes.draw do
 
 
-
-  resources :reports,  :metrics, :tariffs
-
-
-  root :to => 'welcome#index'
-
-
-  match ':controller/:action'
+  scope '(:locale)' do
+    resources :reports,  :metrics, :tariffs
+    root :to => 'welcome#index'
+    match ':controller/:action'
+  end
 
 
   # The priority is based upon order of creation:
