@@ -6,6 +6,8 @@ gem 'rvm'
 gem 'rvm-capistrano'
 gem 'russian', '~> 0.6.0'
 
+gem 'test-unit'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
