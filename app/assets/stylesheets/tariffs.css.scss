@@ -1,3 +1,22 @@
 // Place all the styles related to the Tariffs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tariff_widget {
+
+  font-size: 16px;
+
+  .names {
+    padding-left: 12px;
+
+    p {
+      padding-top: 0.4em;
+    }
+  }
+
+  .values {
+    p {
+      padding-top: 0.4em;
+    }
+  }
+}

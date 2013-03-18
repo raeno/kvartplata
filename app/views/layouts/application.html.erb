@@ -34,7 +34,7 @@
         </section>
 
         <section class="side_widget">
-          <%= render :partial => 'tariffs/side_widget' %>
+          <%= render :partial => 'tariffs/side_widget', :locals => {tariff: current_tariff} %>
         </section>
       </aside>
 
