@@ -1,20 +1,18 @@
-<div class="metric_form">
-<%= simple_form_for @metric,  :validate => true  do |f| %>
+<%= simple_form_for @metric, :html => { :class => 'form-horizontal'},  :validate => true  do |f| %>
 
       <h4>Кухня</h4>
-      <%= f.input :cold_counter_kitchen, :label => 'Холодная вода'  %>
-      <%= f.input :hot_counter_kitchen, :label => 'Горячая вода'  %>
+      <%= f.input :cold_counter_kitchen, label: 'Холодная вода'  %>
+      <%= f.input :hot_counter_kitchen,  label: 'Горячая вода'  %>
 
       <h4>Ванная</h4>
 
-      <%= f.input :cold_counter_bathroom, :label => 'Холодная вода'  %>
-      <%= f.input :hot_counter_bathroom, :label => 'Горячая вода'  %>
+      <%= f.input :cold_counter_bathroom, label: 'Холодная вода'  %>
+      <%= f.input :hot_counter_bathroom,  label: 'Горячая вода'  %>
 
       <h4>Свет</h4>
-      <%= f.input :energy_counter, :label => 'Электроэнергия'  %>
+      <%= f.input :energy_counter, label:'Электроэнергия'  %>
 
 
-      <%= f.submit 'Сохранить' %>
+      <%= f.submit 'Сохранить', :class => 'btn btn-primary' %>
 
     <% end %>
-</div>

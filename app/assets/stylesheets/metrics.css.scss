@@ -1,45 +1,26 @@
 // Place all the styles related to the metrics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin header_font($size) {
+  font-family: 'Open Sans';
+  color: royalblue;
+  font-size: $size ;
+  font-weight: 500;
+}
 
-.metric_form {
-  fieldset {
-    background: skyblue;
+.report {
 
-    legend {
-      color: darkblue;
-      font-family: sans-serif;
-      padding: 0.2em 1em;
-    }
+  h2 {
+    @include header_font(28px);
   }
 
-  form {
-    label {
-      width: 9em;
-      float: left;
-      display: block;
-      padding-bottom: 1.2em;
-    }
+  h4 {
+    @include header_font(22px);
+    padding-top: 10px;
+    padding-bottom: 6px;
+  }
 
-    .field, .actions, h4 {
-      clear: left;
-    }
-
-    h4 {
-      padding-top: 0.6em;
-    }
-
-    input {
-      margin-left: 1em;
-      float: left;
-    }
-
-    .submit {
-      margin-left: 4em;
-    }
-
-    br {
-      display: none;
-    }
+  .new_metric {
+    margin-left: 100px;
   }
 }
