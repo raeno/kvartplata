@@ -80,10 +80,10 @@
 
 .previous-report-link {
   padding-left: 12px;
-  padding-top: 1em;
+  padding-top: 1.5em;
 
-  &:last-of-type {
-    padding-bottom: 0;
+  &:first-of-type {
+    padding-top: 0.5em;
   }
 
   a {
