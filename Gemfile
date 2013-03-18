@@ -36,7 +36,10 @@ gem 'mysql2'
 
 gem 'jquery-rails'
 
-gem 'client_side_validations'
+gem 'simple_form', '~>2.0.3'
+gem 'client_side_validations', '~>3.2.2'
+gem 'client_side_validations-simple_form', '~>2.0.1'
+
 
 gem 'execjs'
 
@@ -53,7 +56,7 @@ gem 'execjs'
 # Deploy with Capistrano
 gem 'capistrano'
 
-gem 'simple_form'
+
 
 # To use debugger
 # gem 'debugger'

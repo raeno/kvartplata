@@ -16,3 +16,4 @@
 //= require_tree .
 //= require rails.validations
 //= require bootstrap
+//= require rails.validations.simple_form
