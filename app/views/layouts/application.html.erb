@@ -9,33 +9,42 @@
 </head>
 <body>
 
-<div id="container">
+<div class="container">
 
     <header>
       <hgroup>
-        <h1>Kvartplata</h1>
-
+        <h3>
+            <a class="brand" href="#">Kvartplata</a>
+        </h3>
       </hgroup>
     </header>
 
+    <div class="row">
 
-    <section class="content">
-      <div class='report'>
-        <%= yield %>
-      </div>
-    </section>
-
-    <aside class="aside">
-      <section class='side_widget'>
-        <h3>Previous reports</h3>
-        <%= render :partial => 'reports/report_link', :collection => last_reports, :as => :report  %>
+      <section class="content span8">
+        <div class='report'>
+          <%= yield %>
+        </div>
       </section>
 
-      <section>
-        <h3>Tariffs</h3>
-      </section>
+      <aside class="aside span4">
 
-    </aside>
+        <section class='side_widget'>
+          <h3>Предыдущие отчеты</h3>
+          <ul>
+            <%= render :partial => 'reports/report_link', :collection => last_reports, :as => :report  %>
+          </ul>
+        </section>
+
+        <section class="side_widget">
+          <h3>Текущие тарифы</h3>
+        </section>
+      </aside>
+
+    </div>
+
+
+
 
     <footer></footer>
 </div>

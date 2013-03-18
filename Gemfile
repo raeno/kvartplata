@@ -16,6 +16,9 @@ group :assets do
 
   gem 'sass-rails',   '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.2'
+  gem 'less-rails'
+
+  gem 'twitter-bootstrap-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -49,6 +52,8 @@ gem 'execjs'
 
 # Deploy with Capistrano
 gem 'capistrano'
+
+gem 'simple_form'
 
 # To use debugger
 # gem 'debugger'

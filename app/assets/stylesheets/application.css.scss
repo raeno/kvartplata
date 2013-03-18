@@ -13,60 +13,62 @@
  */
 
 $footer_height:  80px;
-html {
-  height: 100%;
+
+
+
+header {
+  padding: 5px;
+  height: 50px;
+  margin-top: 1em;
 }
 
-body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
+h3 a.brand {
+  color: #07499e;
+  font-family: 'OpenSans';
+  font-size: 42px;
+  font-weight: 300;
 
-
+  &:hover {
+    background: transparent;
+  }
 }
 
-#container {
-  width: 850px;
-  margin: 0 auto;
-  height: auto !important;
-  min-height: 100%;
+.content {
+  margin-top: 3em;
+}
 
-  header {
-    padding: 5px;
-    height: 50px;
-  }
 
-  .content {
-    float: left;
-    width: 550px;
-    padding: 10px;
-  }
+.report {
+  padding-bottom: $footer_height;
+}
 
-  .report {
-    padding-bottom: $footer_height;
-  }
+.aside {
+  margin-top: 3em;
 
-  .aside {
-    float: left;
-    width:  250px;
-    padding:  10px;
 
-    .side_widget {
-      height: 150px;
+  .side_widget {
+    height: 150px;
+    margin-left: 2em;
 
+    h3 {
+      color: royalblue;
+      font-size: 24px;
+      font-family: 'Open Sans';
+      font-weight: 500;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        text-align: left;
+        padding: 0;
+        margin: 0;
+      }
     }
   }
-
-  footer {
-    padding: 0;
-    clear: both;
-    width: 850px;
-    height: $footer_height;
-    position: relative;
-    margin: -$footer_height auto 0;
-  }
-
 }
+
 
 .field_with_errors {
   display: inline;
