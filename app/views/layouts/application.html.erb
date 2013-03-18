@@ -30,20 +30,11 @@
       <aside class="aside span4">
 
         <section class='side_widget'>
-          <h3>Предыдущие отчеты:</h3>
-          <ul>
-            <%= render :partial => 'reports/report_link', :collection => last_reports, :as => :report  %>
-            <hr>
-
-            <li class="previous-report-link">
-              <%= link_to 'все отчеты', reports_path %>
-            </li>
-          </ul>
-
+            <%= render :partial => 'reports/side_widget' %>
         </section>
 
         <section class="side_widget">
-          <h3>Текущие тарифы</h3>
+          <%= render :partial => 'tariffs/side_widget' %>
         </section>
       </aside>
 
