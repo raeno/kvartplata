@@ -14,7 +14,7 @@
     <header>
       <hgroup>
         <h3 class="span4 offset1">
-            <a class="brand" href="#">Kvartplata</a>
+            <a class="brand" href="/">Kvartplata</a>
         </h3>
       </hgroup>
     </header>
@@ -30,10 +30,16 @@
       <aside class="aside span4">
 
         <section class='side_widget'>
-          <h3>Предыдущие отчеты</h3>
+          <h3>Предыдущие отчеты:</h3>
           <ul>
             <%= render :partial => 'reports/report_link', :collection => last_reports, :as => :report  %>
+            <hr>
+
+            <li class="previous-report-link">
+              <%= link_to 'все отчеты', reports_path %>
+            </li>
           </ul>
+
         </section>
 
         <section class="side_widget">

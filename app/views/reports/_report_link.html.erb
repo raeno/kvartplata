@@ -1,3 +1,4 @@
-<li>
-  <%=  link_to report.date.strftime('%B %Y'), report_path(report) %>
+<li class="previous-report-link">
+  <%=  link_to l(report.date, :format => :month_year).mb_chars.downcase.to_s, report_path(report) %>
+  <span><%= number_to_currency report.total %></span>
 </li>

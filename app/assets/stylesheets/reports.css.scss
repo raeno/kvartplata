@@ -76,6 +76,29 @@
       }
     }
   }
+}
+
+.previous-report-link {
+  padding-left: 12px;
+  padding-top: 1em;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  a {
+    font-size: 18px;
+    color: rgb(6, 67, 145);
+  }
+  span {
+
+    font-size: 16px;
+    margin-right: 4em;
+    float: right;
+    color: royalblue;
+
+  }
+
 
 
 }

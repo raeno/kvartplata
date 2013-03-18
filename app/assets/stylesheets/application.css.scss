@@ -15,7 +15,10 @@
 
 $footer_height:  80px;
 
-
+ul, li, ol {
+  margin: 0;
+  padding: 0;
+}
 
 header {
   padding: 5px;
@@ -48,8 +51,8 @@ h3 a.brand {
 
 
   .side_widget {
-    height: 150px;
-    margin-left: 2em;
+
+    margin: 0em 0em 5em 2em;
 
     h3 {
       color: royalblue;
@@ -60,12 +63,14 @@ h3 a.brand {
 
     ul {
       list-style: none;
+      padding: 0;
+    }
 
-      li {
-        text-align: left;
-        padding: 0;
-        margin: 0;
-      }
+    hr {
+      width: 10em;
+      border: 1px solid gray;
+      margin: 10px 0 0 10px;
+
     }
   }
 }
