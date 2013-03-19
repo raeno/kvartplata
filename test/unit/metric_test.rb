@@ -32,13 +32,14 @@ class MetricTest < ActiveSupport::TestCase
     counters.each do |counter|
       method = counter + '='
 
+
       @simple_metric.send(method,-1)
       assert @simple_metric.invalid?
-      assert_equal 'must be greater than 0.001', @simple_metric.errors[counter].join('; ')
+      assert @simple_metric.errors.error_names[counter.to_sym].include? :greater_than
 
       @simple_metric.send(method,0)
       assert @simple_metric.invalid?
-      assert_equal 'must be greater than 0.001', @simple_metric.errors[counter].join('; ')
+      assert @simple_metric.errors.error_names[counter.to_sym].include? :greater_than
 
       @simple_metric.send(method,3)
       assert @simple_metric.valid?
