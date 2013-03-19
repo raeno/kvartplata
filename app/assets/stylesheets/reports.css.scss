@@ -11,8 +11,29 @@
       font-family: 'Open Sans';
       font-weight: 300;
       display: inline;
+      margin-right: 20px;
+
     }
 
+    .icons {
+      float: right;
+      margin-right: 5%;
+      margin-top: 4px;
+
+      a {
+        font-size: 24px;
+        color: #064391;
+        text-decoration: none;
+        padding-left: 12px;
+        cursor: pointer;
+
+
+        &:hover {
+          color: royalblue;
+          ;
+        }
+      }
+    }
   }
 
 
@@ -98,11 +119,14 @@
   a {
     font-size: 18px;
     color: rgb(6, 67, 145);
+    &:hover {
+      color: royalblue;
+    }
   }
   span {
 
     font-size: 16px;
-    margin-right: 4.8em;
+    margin-right: 25%;
     float: right;
     color: royalblue;
 

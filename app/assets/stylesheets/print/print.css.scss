@@ -1,4 +1,4 @@
-header, .brand, .aside, .side-widget, .main-header {
+header, .brand, .aside, .side-widget, .main-header, .report-header {
   display: none;
 }
 
@@ -8,6 +8,7 @@ header, .brand, .aside, .side-widget, .main-header {
 
 .print-header {
   display: visible;
+  margin-bottom: 2em;
   p {
     font-size: 18px;
   }

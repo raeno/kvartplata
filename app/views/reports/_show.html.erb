@@ -1,9 +1,11 @@
 <% month_year = l(report.date,:format => :month_year).mb_chars.downcase.to_s %>
 <% last_day = Time::days_in_month(report.date.month) %>
 <div class="report-header">
-    <h2 class="main-header">Отчет за <%= month_year %></h2>
-    <i class="icon-print"></i>
-    <i class="icon-envelope"></i>
+    <h2 class="main-header ">Отчет за <%= month_year %></h2>
+    <div class="icons">
+        <a href="javascript:window.print()" rel="nofollow"> <i class="icon-print"></i> </a>
+        <a> <i class="icon-envelope"></i></a>
+    </div>
 </div>
 
 <div class="print-header">
