@@ -34,8 +34,6 @@ FactoryGirl.define do
       association :previous_metric, factory: :metric
       association :current_metric, factory: :metric
     end
-
-
     tariff
   end
 

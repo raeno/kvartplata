@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :last_reports, :current_tariff
+  helper_method :last_reports, :current_tariff, :current_apartment
   before_filter :set_i18n_locale_from_params
 
   def last_reports
@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   def current_tariff
     Tariff.last
+  end
+
+  def current_apartment
+    ApartmentInfo.last
   end
 
   protected

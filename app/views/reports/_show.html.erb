@@ -9,7 +9,7 @@
 </div>
 
 <div class="print-header">
-  <% apartment_info = ApartmentInfo.last %>
+
   <p>Показания приборов учета квартиры №<%= apartment_info.number %></p>
   <p>Собственник: <%= apartment_info.owner %></p>
   <p>Период платежа с <%= l(report.date, :format => :day_month_year) %> по

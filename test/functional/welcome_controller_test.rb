@@ -18,6 +18,7 @@ class WelcomeControllerTest < ActionController::TestCase
     date = 5.years.since.change(:day => Metric::PAYMENT_DAY)
     Timecop.freeze(date)
 
+    create(:apartment_info)
     create(:metric, month: 2.month.ago)
     create(:metric, month: 1.month.ago)
     create(:metric, month: DateTime.now)
