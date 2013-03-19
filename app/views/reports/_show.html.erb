@@ -1,5 +1,19 @@
 <% month_year = l(report.date,:format => :month_year).mb_chars.downcase.to_s %>
-<h2 class="main_header">Отчет за <%= month_year %></h2>
+<% last_day = Time::days_in_month(report.date.month) %>
+<div class="report-header">
+    <h2 class="main-header">Отчет за <%= month_year %></h2>
+    <i class="icon-print"></i>
+    <i class="icon-envelope"></i>
+</div>
+
+<div class="print-header">
+  <% apartment_info = ApartmentInfo.last %>
+  <p>Показания приборов учета квартиры №<%= apartment_info.number %></p>
+  <p>Собственник: <%= apartment_info.owner %></p>
+  <p>Период платежа с <%= l(report.date, :format => :day_month_year) %> по
+    <%= l(report.date.change(:day => last_day), :format => :day_month_year) %></p>
+
+</div>
 
 <table>
   <thead>

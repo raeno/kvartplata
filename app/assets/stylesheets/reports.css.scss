@@ -3,12 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .report {
-  .main_header {
-    color: royalblue;
-    font-size: 28px;
-    font-family: 'Open Sans';
-    font-weight: 300;
+  .report-header {
+
+    .main-header {
+      color: royalblue;
+      font-size: 28px;
+      font-family: 'Open Sans';
+      font-weight: 300;
+      display: inline;
+    }
+
   }
+
+
+
+
 
   table {
     text-align: center;
@@ -98,7 +107,10 @@
     color: royalblue;
 
   }
+}
 
-
-
+@media screen {
+  .print-header {
+    display: none;
+  }
 }

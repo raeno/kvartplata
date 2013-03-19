@@ -1,0 +1,15 @@
+header, .brand, .aside, .side-widget, .main-header {
+  display: none;
+}
+
+.report {
+  padding-bottom: 0;
+}
+
+.print-header {
+  display: visible;
+  p {
+    font-size: 18px;
+  }
+
+}

@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -9,6 +11,13 @@
 Metric.delete_all
 Tariff.delete_all
 Report.delete_all
+ApartmentInfo.delete_all
+
+ApartmentInfo.create(
+    :owner => 'Плюшкин В.И',
+    :number => 14,
+    :address => 'Бугаева 82'
+)
 
 Tariff.create(
     :start_date => 5.month.ago,
