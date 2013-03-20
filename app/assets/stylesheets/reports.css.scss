@@ -12,7 +12,6 @@
       font-weight: 300;
       display: inline;
       margin-right: 20px;
-
     }
 
     .icons {
@@ -27,27 +26,19 @@
         padding-left: 12px;
         cursor: pointer;
 
-
         &:hover {
           color: royalblue;
-          ;
         }
       }
     }
   }
-
-
-
-
 
   table {
     text-align: center;
     border-collapse: collapse;
 
     thead {
-
       tr {
-
          th {
            font-weight: 600;
            font-size: 20px;
@@ -60,18 +51,15 @@
     }
 
     tbody {
-
-      .row_header{
+      .row-header{
         font-size: 20px;
         border-right: 1px lightgray solid;
         padding-right: 0.3em;
       }
-
       @mixin separator($bottom) {
         padding-top: 0;
         padding-bottom: $bottom;
       }
-
       .metric_separator {
         @include separator(0.7em);
       }
@@ -99,7 +87,6 @@
         font-size: 22px;
         text-align: right;
       }
-
       td {
         vertical-align: middle;
         font-size: 16px;
@@ -134,7 +121,7 @@
 }
 
 @media screen {
-  .print-header {
+  .print-header,{
     display: none;
   }
 }

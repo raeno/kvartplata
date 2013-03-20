@@ -9,12 +9,10 @@
 </div>
 
 <div class="print-header">
-
   <p>Показания приборов учета квартиры №<%= apartment_info.number %></p>
   <p>Собственник: <%= apartment_info.owner %></p>
   <p>Период платежа с <%= l(report.date, :format => :day_month_year) %> по
     <%= l(report.date.change(:day => last_day), :format => :day_month_year) %></p>
-
 </div>
 
 <table>
@@ -32,13 +30,8 @@
   <tbody>
 
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric, :is_diff => false } %>
-
-
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric, :is_diff => false } %>
-
-
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.difference, :is_diff => true } %>
-
 
       <tr>
         <td colspan="6" class='metric_separator'></td>
@@ -46,7 +39,7 @@
 
       <!-- tariff -->
       <tr class="single_line">
-        <td class="row_header">тариф</td>
+        <td class="row-header">тариф</td>
         <td></td>
         <td><%= report.tariff.hot_water %></td>
         <td><%= report.tariff.cold_water %></td>
@@ -60,7 +53,7 @@
 
       <!-- total -->
       <tr class="single_line total_cost">
-        <td class="row_header">стоимость</td>
+        <td class="row-header">стоимость</td>
         <td></td>
         <td><%=  report.hot_water %></td>
         <td><%=  report.cold_water %></td>
@@ -77,3 +70,53 @@
       </tr>
   </tbody>
 </table>
+
+<a data-toggle="collapse" data-target="#report-collapsing-wrapper">округленный отчет</a>
+<!--<button type="button" class="btn btn-info" data-toggle='collapse' data-target="#report-collapsing-wrapper">Collapse rounded report</button>-->
+
+<div id="report-collapsing-wrapper" class="collapse">
+  <table id="rounded-report"  class="rounded-values-report">
+    <thead>
+    <tr>
+      <th></th>
+      <th>до</th>
+      <th>после</th>
+      <th>разность</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="row-header">ГВС</td>
+      <td><%=  report.previous_metric.total_hot_water.round  %></td>
+      <td><%=  report.current_metric.total_hot_water.round %></td>
+      <td><%=  report.difference.total_hot_water.round %></td>
+    </tr>
+
+    <tr>
+      <td class="row-header">ХВС</td>
+      <td><%=  report.previous_metric.total_cold_water.round  %></td>
+      <td><%=  report.current_metric.total_cold_water.round %></td>
+      <td><%=  report.difference.total_cold_water.round %></td>
+    </tr>
+
+    <tr>
+      <td class="row-header">Канализация</td>
+      <td></td>
+      <td></td>
+      <td><%=  report.difference.utilities.round %></td>
+    </tr>
+
+    <tr>
+      <td class="row-header">Электричество</td>
+      <td><%=  report.previous_metric.energy_counter.round  %></td>
+      <td><%=  report.current_metric.energy_counter.round %></td>
+      <td><%=  report.difference.energy_counter.round %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
