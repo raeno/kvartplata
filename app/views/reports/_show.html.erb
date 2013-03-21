@@ -3,8 +3,14 @@
 <div class="report-header">
     <h2 class="main-header ">Отчет за <%= month_year %></h2>
     <div class="icons">
-        <a href="javascript:window.print()" rel="nofollow"> <i class="icon-print"></i> </a>
-        <a> <i class="icon-envelope"></i></a>
+      <a class="report-type-switcher" data-toggle="collapse" data-target="#report-collapsing-wrapper" rel="nofollow">
+        <div>
+          <i class="icon-table"></i>
+          <i class="icon-columns"></i>
+        </div>
+      </a>
+      <a href="javascript:window.print()" rel="nofollow"> <i class="icon-print"></i> </a>
+      <a> <i class="icon-envelope"></i></a>
     </div>
 </div>
 
@@ -15,19 +21,22 @@
     <%= l(report.date.change(:day => last_day), :format => :day_month_year) %></p>
 </div>
 
-<table>
-  <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th>ГВС</th>
-        <th>ХВС</th>
-        <th>Слив</th>
-        <th>Свет</th>
-      </tr>
-  </thead>
+<div class="carousel slide" data-interval='false'>
+  <div class="carousel-inner">
 
-  <tbody>
+    <table class="item active">
+      <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>ГВС</th>
+            <th>ХВС</th>
+            <th>Слив</th>
+            <th>Свет</th>
+          </tr>
+      </thead>
+
+      <tbody>
 
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric, :is_diff => false } %>
       <%= render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric, :is_diff => false } %>
@@ -68,14 +77,12 @@
       <tr class="in_total">
         <td colspan="6"><%= number_to_currency report.total %></td>
       </tr>
-  </tbody>
-</table>
 
-<a data-toggle="collapse" data-target="#report-collapsing-wrapper">округленный отчет</a>
-<!--<button type="button" class="btn btn-info" data-toggle='collapse' data-target="#report-collapsing-wrapper">Collapse rounded report</button>-->
+    </table>
 
-<div id="report-collapsing-wrapper" class="collapse">
-  <table id="rounded-report"  class="rounded-values-report">
+
+
+  <table id="rounded-report"  class="rounded-values-report item">
     <thead>
     <tr>
       <th></th>
@@ -114,7 +121,10 @@
     </tr>
     </tbody>
   </table>
+  </div>
 </div>
+
+</tbody>
 
 
 

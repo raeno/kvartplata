@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$deep_blue: rgb(6, 67, 145);
+
 .report {
   .report-header {
 
@@ -29,7 +31,12 @@
         &:hover {
           color: royalblue;
         }
+
+        div {
+          display: inline;
+        }
       }
+
     }
   }
 
@@ -105,7 +112,7 @@
 
   a {
     font-size: 18px;
-    color: rgb(6, 67, 145);
+    color: $deep_blue;
     &:hover {
       color: royalblue;
     }
