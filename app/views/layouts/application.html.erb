@@ -13,13 +13,24 @@
 
 <div class="container">
 
-    <header>
-      <hgroup>
-        <h3 class="span4 offset1">
-            <a class="brand" href="/">Kvartplata</a>
-        </h3>
-      </hgroup>
-    </header>
+    <div class="navbar navbar-fixed-top">
+       <div class="navbar-inner">
+         <ul class="nav">
+           <li>
+             <h3 >
+               <a class="brand" href="/">Kvartplata</a>
+             </h3>
+           </li>
+            <li ><%= link_to 'занести показания', new_metric_path %></li>
+            <li><%= link_to 'отчеты', reports_path %></li>
+
+           <li><%= link_to 'тарифы', tariffs_path %></li>
+           <li><%= link_to 'настройки', '#' %></li>
+         </ul>
+
+       </div>
+
+    </div>
 
     <div class="row">
 
