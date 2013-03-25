@@ -1,26 +1,34 @@
-<p>
-  <span >гвс</span>
-  <span class="value"><%= report.hot_water %></span>
-</p>
+<div class="cell-container">
+  <div class="left-column">
+    <div class="value-block">
+      <p class="header">гвс</p>
+      <p class="value"><%= report.hot_water %></p>
+    </div>
 
-<p>
-  <span>хвс</span>
-  <span class="value"><%= report.cold_water %></span>
-</p>
+    <div class="value-block">
+      <p class="header">слив</p>
+      <p class="value"><%= report.utilities %></p>
+    </div>
 
-<p>
-  <span>слив</span>
-  <span class="value"><%= report.utilities %></span>
-</p>
+  </div>
 
-<p>
-  <span>свет</span>
-  <span class="value"><%= report.energy %></span>
-</p>
+  <div class="right-column">
 
-<hr>
+    <div class="value-block">
+        <p class="header">хвс</p>
+        <p class="value"><%= report.cold_water %></p>
+    </div>
 
-<p class="total">
-  <span>всего</span>
-  <span class="value"><%= report.total %></span>
-</p>
+    <div class="value-block">
+        <p class="header">свет</p>
+        <p class="value"><%= report.energy %></p>
+    </div>
+
+  </div>
+
+  <hr>
+  <div class="total">
+    <span class="header">всего:</span>
+    <span class="value"><%= number_to_currency report.total %></span>
+  </div>
+</div>

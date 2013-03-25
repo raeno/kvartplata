@@ -135,34 +135,66 @@ $deep_blue: rgb(6, 67, 145);
 }
 
 .report-year-calendar {
+
+  h4 {
+    padding: 0 0 5px 0;
+  }
+
+  hr {
+    border: 1px solid lightgray;
+    margin: 0 20%;
+  }
+
   tr {
     td {
-      p {
-        text-align: left;
-        margin-left: 40px;
-        margin-bottom: 5px;
-
-        .value {
-          float: right;
-          margin-right: 40px;
-        }
-      }
-
-      .total {
-        padding-top: 5px;
-      }
-
-      hr {
-        margin: 0 30px;
-        border: 1px solid lightgray;
-
-      }
-
-      .report-month {
-        margin-bottom: 10px;
-      }
-
-
+      border: 1px solid lightblue;
     }
   }
+
+  .cell-container {
+    width: 100%;
+
+    .left-column {
+      width: 40%;
+      margin-left: 10%;
+      float: left;
+    }
+
+    .right-column {
+      width: 40%;
+      margin-right: 10%;
+      float: left;
+    }
+
+    .value-block {
+      padding: 5px 10px 3px 10px;
+
+      .header {
+        margin: 0;
+        padding: 0;
+        color: #777;
+      }
+      .value {
+        padding-top: 3px;
+      }
+    }
+    .total {
+
+      padding-top: 10px;
+      font-size: 17px;
+
+      .header {
+        float: left;
+        margin-left: 20%;
+      }
+      .value {
+        float: right;
+        margin-right: 10%;
+      }
+    }
+  }
+
 }
+
+
+
