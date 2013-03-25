@@ -1,40 +1,34 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+
 development:
-  adapter: mysql2
-  encoding: utf8
+  adapter:  postgresql
+  encoding: unicode
   reconnect: false
   database: kvartplata_development
   pool: 5
-  username: raeno
-  password: cdrA8pUunAcYCZQe
+  username: rails_kvartplata
+  password: 2QitVpdFS5cvHzZNPn
   host: localhost
   timeout: 5000
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+
 test:
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   reconnect: false
   database: kvartplata_test
   pool: 5
-  username: raeno
-  password: cdrA8pUunAcYCZQe
+  username: rails_kvartplata
+  password: 2QitVpdFS5cvHzZNPn
   host: localhost
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false
   database: kvartplata_production
   pool: 5
-  username: raeno
-  password: cdrA8pUunAcYCZQe
+  username: rails_kvartplata
+  password: 2QitVpdFS5cvHzZNPn
   host: localhost
   timeout: 5000

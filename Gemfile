@@ -30,7 +30,7 @@ group :test, :development do
 end
 
 
-gem 'mysql2'
+gem 'pg', '~> 0.14.1'
 
 gem 'jquery-rails'
 
