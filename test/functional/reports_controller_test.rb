@@ -13,7 +13,7 @@ class ReportsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, id: @report
+    get :show, year: @report.date.year, month: @report.date.month
     assert_response :success
   end
 

@@ -28,7 +28,7 @@ FactoryGirl.define do
     utilities 35
     energy 182
     total { cold_water + hot_water + utilities + energy }
-    date 1.month.ago
+    sequence(:date) { |n| (10-n).month.ago.round_to_month }
 
     factory :report_with_metrics do
       association :previous_metric, factory: :metric

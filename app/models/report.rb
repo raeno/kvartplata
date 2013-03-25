@@ -47,4 +47,8 @@ class Report < ActiveRecord::Base
     end
     grouped_by_year
   end
+
+  def month_year_path
+    Rails.application.routes.url_helpers.report_year_month_path(:year => date.year, :month => date.month)
+  end
 end

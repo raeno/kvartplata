@@ -4,7 +4,8 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @report = Report.find(params[:id])
+    date = Date.new(params[:year].to_i, params[:month].to_i,1)
+    @report = Report.find_last_by_date date
 
     respond_to do |format|
       format.html # show.html.erb

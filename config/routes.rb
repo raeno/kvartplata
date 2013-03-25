@@ -2,7 +2,9 @@ Kvartplata::Application.routes.draw do
 
 
   scope '(:locale)' do
-    resources :reports,  :metrics, :tariffs
+    resources :metrics, :tariffs
+    resources :reports, :except => [:show]
+    get '/reports/:year/:month', :controller => :reports, :action => :show, :as => 'report_year_month'
     root :to => 'welcome#index'
     match ':controller/:action'
   end
