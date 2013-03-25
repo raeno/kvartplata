@@ -133,3 +133,36 @@ $deep_blue: rgb(6, 67, 145);
     display: none;
   }
 }
+
+.report-year-calendar {
+  tr {
+    td {
+      p {
+        text-align: left;
+        margin-left: 40px;
+        margin-bottom: 5px;
+
+        .value {
+          float: right;
+          margin-right: 40px;
+        }
+      }
+
+      .total {
+        padding-top: 5px;
+      }
+
+      hr {
+        margin: 0 30px;
+        border: 1px solid lightgray;
+
+      }
+
+      .report-month {
+        margin-bottom: 10px;
+      }
+
+
+    }
+  }
+}

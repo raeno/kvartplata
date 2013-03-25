@@ -3,25 +3,28 @@
 <% @reports_by_year.keys.each do |key| %>
 
     <% this_year_reports = @reports_by_year[key].group_by { |report| report.date.month } %>
-    <h2><% key %></h2>
+    <h2><%= key %></h2>
 
-    <table>
+    <table class="report-year-calendar">
       <% (0..3).each do |quarter| %>
           <tr>
             <% (1..3).each do |month_in_quarter| %>
                 <td>
                   <% month = quarter*3 + month_in_quarter %>
-                  <a href="#"><%= t('date.month_names')[month].mb_chars.downcase.to_s %></a>
+                  <h4>
+                    <a class="report-month" href="#"><%= t('date.month_names')[month].mb_chars.downcase.to_s %></a>
+                  </h4>
 
                   <% report = this_year_reports[month].first if this_year_reports.include? month
                      unless report.nil?    %>
 
-                      <p><%= report.total %></p>
+                    <%= render :partial => 'reports/calendar_cell', :locals => {:report => report} %>
+
+                  <% else %>
+
+                    <p>нет отчета</p>
 
                   <% end %>
-
-
-
                 </td>
             <% end %>
           </tr>
