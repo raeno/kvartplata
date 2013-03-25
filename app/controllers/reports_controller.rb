@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   def index
-    @reports_by_year = Report.all.group_by { |report| report.date.year}
+    @reports_by_year = Report.grouped_by_months
   end
 
   def show

@@ -39,4 +39,12 @@ class Report < ActiveRecord::Base
   def compute_total
     cold_water + hot_water + utilities + energy
   end
+
+  def self.grouped_by_months
+    grouped_by_year = Report.all.group_by { |report| report.date.year}
+    grouped_by_year.keys.each do |year|
+      grouped_by_year[year] = grouped_by_year[year].group_by { |report| report.date.month }
+    end
+    grouped_by_year
+  end
 end

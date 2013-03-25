@@ -1,9 +1,6 @@
+<% @reports_by_year.keys.each do |year| %>
 
-
-<% @reports_by_year.keys.each do |key| %>
-
-    <% this_year_reports = @reports_by_year[key].group_by { |report| report.date.month } %>
-    <h2><%= key %></h2>
+    <h2><%= year %></h2>
 
     <table class="report-year-calendar">
       <% (0..3).each do |quarter| %>
@@ -12,26 +9,20 @@
                 <td>
                   <% month = quarter*3 + month_in_quarter %>
                   <h4>
-                    <a class="report-month" href="#"><%= t('date.month_names')[month].mb_chars.downcase.to_s %></a>
+                    <%=  link_to t('date.month_names')[month].mb_chars.downcase.to_s, reports_path %>
                   </h4>
 
-                  <% report = this_year_reports[month].first if this_year_reports.include? month
-                     unless report.nil?    %>
-
-                    <%= render :partial => 'reports/calendar_cell', :locals => {:report => report} %>
-
+                  <% report = @reports_by_year[year][month].first if @reports_by_year[year].include? month %>
+                  <%  unless report.nil? %>
+                    <%=  render :partial => 'reports/calendar_cell', :locals => {:report => report} %>
                   <% else %>
-
                     <p>нет отчета</p>
-
                   <% end %>
                 </td>
             <% end %>
           </tr>
       <% end %>
-
     </table>
-
 <% end %>
 
 
