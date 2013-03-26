@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :last_reports, :current_tariff, :current_apartment
   before_filter :set_i18n_locale_from_params
 
+  before_filter :authenticate_user!
+
   def last_reports
     Report.all(:order => 'date DESC', :limit => 3)
   end
