@@ -68,5 +68,15 @@ module Kvartplata
       g.fixture_replacement :factory_girl
     end
 
+    config.assets.initialize_on_precompile = false
+
+    config.to_prepare do
+      Devise::SessionsController.layout 'devise'
+      Devise::RegistrationsController.layout proc{ |_| user_signed_in? ? 'application' : 'devise' }
+      Devise::ConfirmationsController.layout 'devise'
+      Devise::UnlocksController.layout 'devise'
+      Devise::PasswordsController.layout 'devise'
+    end
+
   end
 end

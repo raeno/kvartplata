@@ -1,6 +1,8 @@
 Kvartplata::Application.routes.draw do
 
 
+  devise_for :users
+
   scope '(:locale)' do
     resources :metrics, :tariffs
     resources :reports, :except => [:show]

@@ -43,6 +43,8 @@ gem 'client_side_validations-simple_form', '~>2.0.1'
 
 gem 'execjs'
 
+gem 'devise'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -12,6 +12,15 @@ Metric.delete_all
 Tariff.delete_all
 Report.delete_all
 ApartmentInfo.delete_all
+User.delete_all
+
+User.create(
+    :email => 'admin@kvartplata.com',
+    :password => 'password',
+    :password_confirmation => 'password',
+    :first_name => 'Василий',
+    :last_name => 'Плюшкин'
+)
 
 ApartmentInfo.create(
     :owner => 'Плюшкин В.И',
