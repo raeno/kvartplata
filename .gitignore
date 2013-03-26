@@ -18,3 +18,6 @@ public/assets
 /tmp
 .idea/
 config/database.yml
+
+# Ignore SimpleCov coverage report
+coverage/

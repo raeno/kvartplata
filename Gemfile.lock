@@ -120,6 +120,10 @@ GEM
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -162,6 +166,7 @@ DEPENDENCIES
   rvm-capistrano
   sass-rails (~> 3.2.5)
   simple_form (~> 2.0.3)
+  simplecov
   test-unit
   therubyracer
   timecop

@@ -27,6 +27,8 @@ end
 group :test, :development do
   gem 'factory_girl_rails'
   gem 'timecop'
+
+  gem 'simplecov', :require => false
 end
 
 
@@ -53,6 +55,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
+
 
 
 
