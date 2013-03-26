@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TariffTest < ActiveSupport::TestCase
 
-  test 'Tariff.used_in should return tariff that was active for the specified month' do
+  test 'Tariff.that_was should return tariff that was active for the specified month' do
 
     very_old_tariff = create(:tariff, start_date: 20.month.ago, end_date: 10.month.ago)
 
