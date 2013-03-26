@@ -42,8 +42,35 @@ class ReportTest < ActiveSupport::TestCase
 
     assert_equal source_metric, report.current_metric
     assert_equal previous_metric, report.previous_metric
+  end
+
+  test 'grouped_by_month should correctly group reports by year and month' do
+    (1..4).each do |month|
+      create(:report, :date => DateTime.now.change(:month => month, :year => 2013) )
+    end
+
+    (1..6).each do |month|
+      create(:report, :date => DateTime.now.change(:month => month, :year => 2012))
+    end
+
+    grouped_reports = Report.grouped_by_months
+
+    assert_equal 2013, grouped_reports.keys[0]
+    assert_equal 2012, grouped_reports.keys[1]
+    assert_equal 2, grouped_reports.keys.count
+
+    assert_equal 4, grouped_reports[2013].count
+    assert_equal 6, grouped_reports[2012].count
+  end
+
+  test 'month_year_path should return path to report in a year-month form' do
+    report = build(:report, :date => DateTime.now.change(:month => 7, :year => 2009))
+    assert_equal '/reports/2009/7', report.month_year_path
 
   end
+
+
+
 
 
 
