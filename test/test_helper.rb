@@ -14,6 +14,10 @@ class ActiveSupport::TestCase
   class Test::Unit::TestCase
     include FactoryGirl::Syntax::Methods
   end
-
-
 end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
+
+

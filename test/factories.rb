@@ -22,7 +22,6 @@ FactoryGirl.define do
 
 
   factory :report do
-
     cold_water 62
     hot_water 78
     utilities 35
@@ -36,5 +35,4 @@ FactoryGirl.define do
     end
     tariff
   end
-
 end

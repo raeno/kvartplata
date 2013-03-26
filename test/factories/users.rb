@@ -2,5 +2,10 @@
 
 FactoryGirl.define do
   factory :user do
+    email 'admin@kvartplata.com'
+    password 'password'
+    password_confirmation 'password'
+    first_name 'Admin'
+    last_name 'Beard'
   end
 end

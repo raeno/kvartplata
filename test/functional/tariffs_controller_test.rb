@@ -3,6 +3,7 @@ require 'test_helper'
 class TariffsControllerTest < ActionController::TestCase
   setup do
     @tariff = create(:tariff)
+    sign_in create(:user)
   end
 
   test "should get index" do

@@ -7,7 +7,14 @@ class WelcomeControllerTest < ActionController::TestCase
     Timecop.return
   end
 
+  test 'should redirect to sign_in path if no user logged in' do
+    get :index
+    assert_redirected_to new_user_session_path
+  end
+
+
   test 'should redirect to new metric if no metric yet and date near payment date' do
+    sign_in create(:user)
     date = 5.years.since.change(:day => Metric::PAYMENT_DAY)
     Timecop.freeze(date)
     get :index
@@ -15,6 +22,7 @@ class WelcomeControllerTest < ActionController::TestCase
   end
 
   test 'should show report if this month metric already in database and date near payment date' do
+    sign_in create(:user)
     date = 5.years.since.change(:day => Metric::PAYMENT_DAY)
     Timecop.freeze(date)
 

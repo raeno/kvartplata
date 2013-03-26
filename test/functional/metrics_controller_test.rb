@@ -3,6 +3,7 @@ require 'test_helper'
 class MetricsControllerTest < ActionController::TestCase
   setup do
     @metric = create(:metric)
+    sign_in create(:user)
   end
 
   test 'should get index' do

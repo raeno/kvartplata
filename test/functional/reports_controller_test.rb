@@ -5,6 +5,7 @@ class ReportsControllerTest < ActionController::TestCase
   setup do
     @report = create(:report_with_metrics)
     @apartment_info = create(:apartment_info)
+    sign_in create(:user)
   end
 
   test 'should get index' do
