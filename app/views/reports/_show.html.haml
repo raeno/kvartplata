@@ -1,0 +1,116 @@
+- month_year = l(report.date,:format => :month_year).mb_chars.downcase.to_s
+- last_day = Time::days_in_month(report.date.month)
+.report-header
+  %h2.main-header Отчет за #{month_year}
+  .icons
+    %a.report-type-switcher{:data => {:toggle=> 'collapse', :target=> '#report-collapsing-wrapper'},:rel=> 'nofollow'}
+      %div
+        %i.icon-table
+        %i.icon-columns
+
+    %a.print-report
+      %i.icon-print
+    %a
+      %i.icon-envelope
+
+.print-header
+  %p Показания приборов учета квартиры №#{apartment_info.number}
+  %p Собственник: #{apartment_info.owner}
+  %p Период платежа с #{l(report.date, :format => :day_month_year)} по #{l(report.date.change(:day => last_day), :format => :day_month_year)}
+
+
+.carousel.slide{:data => {:interval => 'false'}}
+  .carousel-inner
+    %table.item.active
+      %thead
+        %tr
+          %th
+          %th
+          %th ГВС
+          %th ХВС
+          %th Слив
+          %th Свет
+
+      %tbody
+
+      = render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric, :is_diff => false }
+      = render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric, :is_diff => false }
+      = render :partial => 'reports/metric_row', :locals => { :metric => report.difference, :is_diff => true }
+
+      %tr
+        %td.metric_separator{:colspan => 6}
+
+      #tariff
+      %tr.single_line
+        %td.row-header тариф
+        %td
+        %td
+          = report.tariff.hot_water
+        %td
+          = report.tariff.cold_water
+        %td
+          = report.tariff.utilities
+        %td
+          = report.tariff.energy
+
+      %tr
+        %td.cost_separator{:colspan => 6}
+
+      #total
+      %tr.single_line.total_cost
+        %td.row-header стоимость
+        %td
+        %td
+          = report.hot_water
+        %td
+          = report.cold_water
+        %td
+          = report.utilities
+        %td
+          = report.energy
+      %tr
+        %td.in_total_separator{:colspan => 6}
+
+      %tr.in_total
+        %td{:colspan => 6}
+          = number_to_currency report.total
+
+    %table.rounded-values-report.item
+      %thead
+      %tr
+        %th
+        %th до
+        %th после
+        %th разность
+
+      %tbody>
+      %tr>
+        %td.row-header ГВС
+        %td
+          = report.previous_metric.total_hot_water.round
+        %td
+          = report.current_metric.total_hot_water.round
+        %td
+          = report.difference.total_hot_water.round
+
+      %tr
+        %td.row-header ХВС
+        %td
+          = report.previous_metric.total_cold_water.round
+        %td
+          = report.current_metric.total_cold_water.round
+        %td
+          = report.difference.total_cold_water.round
+      %tr
+        %td.row-header Канализация
+        %td
+        %td
+        %td
+          = report.difference.utilities.round
+
+      %tr
+        %td.row-header Электричество
+        %td
+          = report.current_metric.energy_counter.round
+        %td
+          = report.difference.energy_counter.round

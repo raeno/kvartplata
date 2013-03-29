@@ -1,0 +1,28 @@
+.cell-container
+  .left-column
+    .value-block
+      %p.header гвс
+      %p.value
+        = report.hot_water
+
+    .value-block
+      %p.header слив
+      %p.value
+        = report.utilities
+
+  .right-column
+    .value-block
+      %p.header хвс
+      %p.value
+        = report.cold_water
+
+    .value-block
+      .header свет
+      %p.value
+        = report.energy
+  %hr
+
+  .total
+    %span.header всего:
+    %span.value
+      = number_to_currency report.total

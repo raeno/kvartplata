@@ -1,0 +1,7 @@
+%h3 предыдущие отчеты
+%ul
+  = render :partial => 'reports/report_link', :collection => last_reports, :as => :report
+  %hr
+
+  %li.previous-report-link
+    = link_to 'все отчеты', reports_path

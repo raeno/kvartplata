@@ -1,0 +1,27 @@
+- row_header = is_diff ?  'разность' : l(metric.month, :format => :month).mb_chars.downcase.to_s
+- utilities_cell = is_diff ? metric.utilities : '&mdash;'.html_safe
+
+%tr
+  %td.metric_separator{:colspan => 5}
+
+%tr.metric>
+  %td.row-header{:rowspan => 2}
+    = row_header
+  %td.counter_room кухня
+  %td
+    = metric.hot_counter_kitchen
+  %td
+    = metric.cold_counter_kitchen
+  %td{:rowspan => 2}
+    = utilities_cell
+  %td{:rowspan => 2}
+    = metric.energy_counter
+
+%tr
+  %td.counter_room ванная
+  %td
+    = metric.hot_counter_bathroom
+  %td
+    = metric.cold_counter_bathroom
+  %td
+  %td
