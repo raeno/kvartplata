@@ -1,0 +1,42 @@
+!!!
+%html
+%head
+  %title Kvartplata
+  = stylesheet_link_tag    'application', :media => 'all'
+  = stylesheet_link_tag 'print/print', :media => 'print'
+  = stylesheet_link_tag 'bootstrap/bootstrap-responsive.min', :media =>  'screen'
+  = javascript_include_tag 'application'
+  = csrf_meta_tags
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,700&subset=latin,cyrillic-ext'
+
+%body
+.container
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      %ul.nav
+        %li
+          %h3
+            %a.brand{:href => '/'} Kvartplata
+        %li
+          = link_to 'занести показания', new_metric_path
+        %li
+          = link_to 'отчеты', reports_path
+        %li
+          = link_to 'тарифы', tariffs_path
+        %li
+          = link_to 'настройки', '#'
+      .user-nav
+        - if user_signed_in?
+          %italic
+            = current_user.email
+          = link_to 'выйти', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'войти', new_user_session_path
+
+  .row
+    %section.content.span7.offset1
+      .report
+        = yield
+    %aside.aside.span4
+      %section.side_widget
+        = render :partial => 'tariffs/side_widget', :locals => {tariff: current_tariff}
