@@ -40,7 +40,7 @@ gem 'simple_form', '~>2.0.3'
 gem 'client_side_validations', '~>3.2.2'
 gem 'client_side_validations-simple_form', '~>2.0.1'
 
-
+gem 'haml'
 gem 'execjs'
 
 gem 'devise'

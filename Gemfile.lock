@@ -61,6 +61,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    haml (4.0.1)
+      tilt
     highline (1.6.15)
     hike (1.2.1)
     i18n (0.6.4)
@@ -168,6 +170,7 @@ DEPENDENCIES
   devise
   execjs
   factory_girl_rails
+  haml
   jquery-rails
   pg (~> 0.14.1)
   rails (= 3.2.12)
