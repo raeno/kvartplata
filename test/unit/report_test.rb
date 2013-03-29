@@ -46,11 +46,11 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'grouped_by_month should correctly group reports by year and month' do
     (1..4).each do |month|
-      create(:report, :date => DateTime.now.change(:month => month, :year => 2013) )
+      create(:report, :date => DateTime.now.change(:day =>1, :month => month, :year => 2013) )
     end
 
     (1..6).each do |month|
-      create(:report, :date => DateTime.now.change(:month => month, :year => 2012))
+      create(:report, :date => DateTime.now.change(:day => 1, :month => month, :year => 2012))
     end
 
     grouped_reports = Report.grouped_by_months
