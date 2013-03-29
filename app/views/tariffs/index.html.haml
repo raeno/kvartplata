@@ -1,0 +1,20 @@
+%h1 Listing tariffs
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+- @tariffs.each do |tariff|
+  %tr
+    %td
+      = link_to 'Show', tariff
+    %td
+      = link_to 'Edit', edit_tariff_path(tariff)
+    %td
+      = link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tariff', new_tariff_path

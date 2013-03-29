@@ -1,0 +1,22 @@
+.tariff_widget
+  %h3 текущие тарифы
+  .row
+    .span2.names
+      %p горячая вода
+      %p холодная вода
+      %p водоотведение
+      %p электроэнергия
+
+    .values
+      %p
+        = tariff.hot_water
+        р / м3
+      %p
+        = tariff.cold_water
+        р / м3
+      %p
+        = tariff.utilities
+        р / м3
+      %p
+        = tariff.energy
+        р / квт-ч
