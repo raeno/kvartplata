@@ -21,9 +21,9 @@ $ ->
     $('.actions').hide()
     $('.login-form .loading').show()
 
-  $('.login-form').bind 'ajax:success',(e,data, status, xhr) ->
+  $('.login-form').bind 'ajax:success',(e,data) ->
     if data.status == 'redirect'
-      window.location.href = data.status.to
+      window.location.href = data.path
     else if data.status == 'error'
       $('.login-form .error-message').html('<p>' + data.errors + '</p>')
       $('.actions').show()
