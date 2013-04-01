@@ -1,0 +1,9 @@
+%h2 войти
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .form-inputs
+    = f.input :email, :label => 'почта', :required => false, :autofocus => true
+    = f.input :password, :label => 'пароль', :required => false
+    = f.input :remember_me, :label => 'запомнить?', :as => :boolean if devise_mapping.rememberable?
+  .form-actions
+    = f.button :submit, 'войти'
+= render 'devise/shared/links'
