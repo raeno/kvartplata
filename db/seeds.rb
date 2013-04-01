@@ -29,7 +29,16 @@ ApartmentInfo.create(
 )
 
 Tariff.create(
-    :start_date => 5.month.ago,
+    :start_date => 14.month.ago,
+    :end_date => 5.month.ago,
+    :cold_water => 12.34,
+    :hot_water => 89.56,
+    :utilities => 6.94,
+    :energy => 2.87
+)
+
+Tariff.create(
+    :start_date => 5.month.ago + 1.day,
     :end_date => 1000.years.since,
     :cold_water => 12.74,
     :hot_water => 90.86,

@@ -15,8 +15,8 @@
 #= require_tree .
 #= require rails.validations
 #= require rails.validations.simple_form
-$ ->
 
+$ ->
   $('.login-form .btn').click ->
     $('.actions').hide()
     $('.login-form .loading').show()

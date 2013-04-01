@@ -1,20 +1,26 @@
-%h1 Listing tariffs
 
-%table
-  %tr
-    %th
-    %th
-    %th
 
 - @tariffs.each do |tariff|
-  %tr
-    %td
-      = link_to 'Show', tariff
-    %td
-      = link_to 'Edit', edit_tariff_path(tariff)
-    %td
-      = link_to 'Destroy', tariff, method: :delete, data: { confirm: 'Are you sure?' }
+  -if tariff == current_tariff
+    %h4 текущий тариф ( c #{l(tariff.start_date.to_date, :format => :long)} )
+  -else
+    %h4 с #{l(tariff.start_date.to_date, :format => :long)} по #{l(tariff.end_date.to_date, :format => :long)}
+  .tariff-block.row
+    .names.span4
+      %p горячая вода
+      %p холодная вода
+      %p водоотведение #{tariff.utilities}
+      %p электроэнергия #{tariff.energy}
+    .values
+      %p #{tariff.hot_water} р
+      %p #{tariff.cold_water} р
+      %p #{tariff.utilities} р
+      %p #{tariff.energy} р
+
+
+
+
 
 %br
 
-= link_to 'New Tariff', new_tariff_path
+= link_to 'Новый тариф', new_tariff_path
