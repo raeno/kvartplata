@@ -5,6 +5,4 @@
 
     .actions
       = f.button :submit, 'войти', class: 'btn-primary'
-    = render 'devise/shared/links'
-
-
+    = link_to 'забыли пароль?', new_password_path('user'), :class => 'forgot-password'
