@@ -32,11 +32,9 @@
           %th Свет
 
       %tbody
-
       = render :partial => 'reports/metric_row', :locals => { :metric => report.current_metric, :is_diff => false }
       = render :partial => 'reports/metric_row', :locals => { :metric => report.previous_metric, :is_diff => false }
       = render :partial => 'reports/metric_row', :locals => { :metric => report.difference, :is_diff => true }
-
       %tr
         %td.metric_separator{:colspan => 6}
 
@@ -52,7 +50,6 @@
           = report.tariff.utilities
         %td
           = report.tariff.energy
-
       %tr
         %td.cost_separator{:colspan => 6}
 

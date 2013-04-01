@@ -66,14 +66,5 @@ class ReportTest < ActiveSupport::TestCase
   test 'month_year_path should return path to report in a year-month form' do
     report = build(:report, :date => DateTime.now.change(:month => 7, :year => 2009))
     assert_equal '/reports/2009/7', report.month_year_path
-
   end
-
-
-
-
-
-
-
-
 end
