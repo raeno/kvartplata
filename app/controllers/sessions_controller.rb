@@ -5,7 +5,6 @@ class SessionsController < Devise::SessionsController
   end
 
   def sign_in_and_redirect(resource_or_scope, resource=nil)
-    sleep(5)
     scope = Devise::Mapping.find_scope!(resource_or_scope)
     resource ||= resource_or_scope
     sign_in(scope, resource) unless warden.user(scope) == resource
