@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class NewsControllerTest < ActionController::TestCase
+
+  setup do
+    @tariff = create(:tariff)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
