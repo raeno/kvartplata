@@ -12,29 +12,30 @@
 %body
 .container
   .navbar.navbar-fixed-top
-    .navbar-inner.row
-      %ul.nav
-        %li.offset1
-          %h3
-            %a.brand{:href => '/'} Kvartplata
-        %li
-          = link_to 'занести показания', new_metric_path
-        %li
-          = link_to 'отчеты', reports_path
-        %li
-          = link_to 'тарифы', tariffs_path
-        %li
-          = link_to 'настройки', '#'
-      .user-nav
-        - if user_signed_in?
-          %italic
-            = current_user.email
-          = link_to 'выйти', destroy_user_session_path, method: :delete
-        - else
-          %li.dropdown{:data => {:dropdown => 'dropdown'}}
-            = link_to 'войти', :class => 'dropdown-toggle'
-            .dropdown-menu{:role => 'menu'}
-              =render :partial => 'devise/sessions/form'
+    .navbar-inner
+      .fixed-width-nav.user
+        %ul.nav
+          %li
+            %h3
+              %a.brand{:href => '/'} Kvartplata
+          %li
+            = link_to 'занести показания', new_metric_path
+          %li
+            = link_to 'отчеты', reports_path
+          %li
+            = link_to 'тарифы', tariffs_path
+          %li
+            = link_to 'настройки', '#'
+        .user-nav
+          - if user_signed_in?
+            %italic
+              = current_user.email
+            = link_to 'выйти', destroy_user_session_path, method: :delete
+          - else
+            %li.dropdown{:data => {:dropdown => 'dropdown'}}
+              = link_to 'войти', :class => 'dropdown-toggle'
+              .dropdown-menu{:role => 'menu'}
+                =render :partial => 'devise/sessions/form'
 
   .row
     %section.content.span7.offset1

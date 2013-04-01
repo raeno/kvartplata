@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+
+  before_filter :authenticate_user!
   def index
     @reports_by_year = Report.grouped_by_months
   end

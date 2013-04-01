@@ -1,6 +1,8 @@
 class MetricsController < ApplicationController
   # GET /metrics
   # GET /metrics.json
+
+  before_filter :authenticate_user!
   def index
     @metrics = Metric.all
 

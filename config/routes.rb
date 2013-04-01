@@ -1,13 +1,20 @@
 Kvartplata::Application.routes.draw do
 
 
+  get "news/index"
+
+  get "news/show"
+
   devise_for :users
 
   scope '(:locale)' do
     resources :metrics, :tariffs
     resources :reports, :except => [:show]
     get '/reports/:year/:month', :controller => :reports, :action => :show, :as => 'report_year_month'
-    root :to => 'welcome#index'
+    authenticated :user do
+      root :to => 'welcome#index'
+    end
+    root :to => 'news#index'
     match ':controller/:action'
   end
 

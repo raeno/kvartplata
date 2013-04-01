@@ -1,22 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :last_reports, :current_tariff, :current_apartment
   before_filter :set_i18n_locale_from_params
 
-  before_filter :authenticate_user!
-
-  def last_reports
-    Report.all(:order => 'date DESC', :limit => 3)
-  end
-
-  def current_tariff
-    Tariff.last
-  end
-
-  def current_apartment
-    ApartmentInfo.last
-  end
+  layout :layout
 
   protected
   def set_i18n_locale_from_params
@@ -32,6 +19,12 @@ class ApplicationController < ActionController::Base
 
   def self.default_url_options(options={})
     options.merge ({:locale => I18n.locale })
+  end
+
+  private
+
+  def layout
+    !user_signed_in? || devise_controller? ? 'devise' : 'application'
   end
 
 end
