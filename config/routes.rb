@@ -5,7 +5,7 @@ Kvartplata::Application.routes.draw do
 
   get "news/show"
 
-  devise_for :users
+  devise_for :users, :controllers => {sessions: 'sessions'}
 
   scope '(:locale)' do
     resources :metrics, :tariffs
