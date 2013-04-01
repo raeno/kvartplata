@@ -1,0 +1,26 @@
+.login-form {
+  margin: 0 0 10px;
+
+  .control-group {
+    margin: 10px 15px;
+  }
+
+  .password {
+    margin-bottom: 6px;
+  }
+
+  .actions .btn {
+    width: 80%;
+    margin: 0 auto 10px auto;
+  }
+
+  .error-message {
+    color: darkred;
+    font-size: 12px;
+  }
+}
+
+.new_user {
+  padding-top: 15px;
+}
+
