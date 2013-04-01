@@ -12,26 +12,27 @@
 %body
 .container
   .navbar.navbar-fixed-top
-    .navbar-inner
-      %ul.nav
+    .navbar-inner.row
+      %ul.nav.offset1.span7
         %li
           %h3
             %a.brand{:href => '/'} Kvartplata
         %li
-          = link_to 'занести показания', new_metric_path
-        %li
-          = link_to 'отчеты', reports_path
+          = link_to 'новости', tariffs_path
         %li
           = link_to 'тарифы', tariffs_path
-        %li
-          = link_to 'настройки', '#'
+
+
       .user-nav
         - if user_signed_in?
           %italic
             = current_user.email
           = link_to 'выйти', destroy_user_session_path, method: :delete
         - else
-          = link_to 'войти', new_user_session_path
+          .dropdown
+            = link_to 'войти','#', :class => 'dropdown-toggle', :data => {:toggle => 'dropdown'}
+            .dropdown-menu{:role => 'menu',:aria=>{:labelledby=>'dLabel'}}
+              =render :partial => 'devise/sessions/form'
 
   .row
     %section.content.span7.offset1

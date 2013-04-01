@@ -1,0 +1,10 @@
+= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical login-form'} do |f|
+  .form-inputs
+    = f.input :email, :placeholder => 'почта', :class => 'dropdown-input', :label => false, :required => false, :autofocus => true
+    = f.input :password, :placeholder => 'пароль', :class => 'dropdown-input', :label => false, :required => false
+
+    .actions
+      = f.button :submit, 'войти', class: 'btn-primary'
+    = render 'devise/shared/links'
+
+

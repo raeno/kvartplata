@@ -12,9 +12,9 @@
 %body
 .container
   .navbar.navbar-fixed-top
-    .navbar-inner
+    .navbar-inner.row
       %ul.nav
-        %li
+        %li.offset1
           %h3
             %a.brand{:href => '/'} Kvartplata
         %li
@@ -31,7 +31,10 @@
             = current_user.email
           = link_to 'выйти', destroy_user_session_path, method: :delete
         - else
-          = link_to 'войти', new_user_session_path
+          %li.dropdown{:data => {:dropdown => 'dropdown'}}
+            = link_to 'войти', :class => 'dropdown-toggle'
+            .dropdown-menu{:role => 'menu'}
+              =render :partial => 'devise/sessions/form'
 
   .row
     %section.content.span7.offset1

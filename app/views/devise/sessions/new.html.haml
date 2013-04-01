@@ -1,8 +1,1 @@
-= simple_form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'} do |f|
-  .form-inputs
-    = f.input :email, :placeholder => 'почта', :label => false, :required => false, :autofocus => true
-    = f.input :password, :placeholder => 'пароль', :label => false, :required => false
-    = f.input :remember_me, :label => 'запомнить?',  :as => :boolean, :wrapper => :checkbox if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, 'войти', class: 'btn-primary'
-= render 'devise/shared/links'
+=render :partial => 'devise/sessions/form'
