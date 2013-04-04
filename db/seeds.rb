@@ -39,6 +39,15 @@ ApartmentInfo.create(
   )
 end
 
+Tariff.create(
+    :start_date =>6.month.ago,
+    :end_date => 2.year.since,
+    :cold_water => 12.34,
+    :hot_water => 89.56,
+    :utilities => 6.94,
+    :energy => 2.87
+)
+
 
 Metric.create(
     :cold_counter_kitchen => 10,
