@@ -2,7 +2,7 @@ class TariffsController < ApplicationController
   # GET /tariffs
   # GET /tariffs.json
   def index
-    @tariffs = Tariff.order('end_date DESC').all
+    @tariffs = Tariff.all(:order => 'end_date DESC')
 
     respond_to do |format|
       format.html # index.html.erb

@@ -5,15 +5,15 @@ module ApplicationHelper
   end
 
   def last_reports
-    Report.all(:order => 'date DESC', :limit => 3)
+    @last_reports ||= Report.all(:order => 'date DESC', :limit => 3)
   end
 
   def current_tariff
-    Tariff.last
+    @current_tariff ||= Tariff.first(:order => 'end_date DESC')
   end
 
   def current_apartment
-    ApartmentInfo.last
+    @current_apartment ||= ApartmentInfo.last
   end
 
   def resource
