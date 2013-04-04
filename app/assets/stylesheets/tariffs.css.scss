@@ -20,3 +20,44 @@
     }
   }
 }
+
+.other-tariffs {
+  display: none;
+}
+
+.show-more-tariffs {
+  margin-left: 20%;
+  font-size: 18px;
+  color: #0088cc;
+  cursor: pointer;
+
+  &:hover {
+    color: #005580;
+  }
+
+}
+
+.tariff {
+  margin-left: 20%;
+
+
+  h4 {
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+
+  .tariff-body {
+    padding-bottom: 20px;
+
+    .names {
+      margin-left: 16px;
+    }
+
+  }
+
+  p {
+    font-size: 18px;
+    font-family: 'Open Sans';
+    padding-bottom: 10px;
+  }
+}
