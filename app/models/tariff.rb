@@ -8,4 +8,8 @@ class Tariff < ActiveRecord::Base
   def self.that_was(month)
     Tariff.where('start_date <= :month AND end_date >= :month', month: month).last
   end
+
+  def previous
+    Tariff.where('end_date < ?',start_date).last(:order => 'end_date')
+  end
 end

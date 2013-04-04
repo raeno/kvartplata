@@ -28,23 +28,17 @@ ApartmentInfo.create(
     :address => 'Бугаева 82'
 )
 
-Tariff.create(
-    :start_date => 14.month.ago,
-    :end_date => 5.month.ago,
-    :cold_water => 12.34,
-    :hot_water => 89.56,
-    :utilities => 6.94,
-    :energy => 2.87
-)
+(2..10).each do |i|
+  Tariff.create(
+      :start_date => ((i+1)*3).month.ago,
+      :end_date => (i*3).month.ago,
+      :cold_water => 12.34 -i,
+      :hot_water => 89.56 -i,
+      :utilities => 6.94 - 0.3*i,
+      :energy => 2.87 - 0.1*i
+  )
+end
 
-Tariff.create(
-    :start_date => 5.month.ago + 1.day,
-    :end_date => 1000.years.since,
-    :cold_water => 12.74,
-    :hot_water => 90.86,
-    :utilities => 7.64,
-    :energy => 3.23
-)
 
 Metric.create(
     :cold_counter_kitchen => 10,

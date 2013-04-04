@@ -1,0 +1,17 @@
+-if tariff == current_tariff
+  %h4
+    %a текущий тариф ( c #{l(tariff.start_date.to_date, :format => :long)} )
+-else
+  %h4
+    %a c #{l(tariff.start_date.to_date, :format => :long)} по #{l(tariff.end_date.to_date, :format => :long)}
+%div{:class => 'tariff-block'}
+  .names.span4
+    %p горячая вода
+    %p холодная вода
+    %p водоотведение #{tariff.utilities}
+    %p электроэнергия #{tariff.energy}
+  .values
+    %p #{tariff.hot_water} р
+    %p #{tariff.cold_water} р
+    %p #{tariff.utilities} р
+    %p #{tariff.energy} р

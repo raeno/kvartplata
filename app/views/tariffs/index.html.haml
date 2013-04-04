@@ -1,26 +1,10 @@
+- previous_tariff = current_tariff.previous
 
+=render :partial => 'tariffs/tariff_brief', :locals => {:tariff => current_tariff}
+=render :partial => 'tariffs/tariff_brief', :locals => {:tariff => previous_tariff}
 
-- @tariffs.each do |tariff|
-  -if tariff == current_tariff
-    %h4 текущий тариф ( c #{l(tariff.start_date.to_date, :format => :long)} )
-  -else
-    %h4 с #{l(tariff.start_date.to_date, :format => :long)} по #{l(tariff.end_date.to_date, :format => :long)}
-  .tariff-block.row
-    .names.span4
-      %p горячая вода
-      %p холодная вода
-      %p водоотведение #{tariff.utilities}
-      %p электроэнергия #{tariff.energy}
-    .values
-      %p #{tariff.hot_water} р
-      %p #{tariff.cold_water} р
-      %p #{tariff.utilities} р
-      %p #{tariff.energy} р
+= link_to 'показать все', '#'
 
-
-
-
-
-%br
-
-= link_to 'Новый тариф', new_tariff_path
+.other_tariffs
+  - @tariffs.each do |tariff|
+    = render :partial => 'tariffs/tariff_brief', :locals => {:tariff => tariff} unless (tariff == current_tariff or tariff == previous_tariff)
