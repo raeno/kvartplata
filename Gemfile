@@ -25,6 +25,8 @@ group :test, :development do
   gem 'timecop'
 
   gem 'simplecov', :require => false
+
+  gem 'bullet'
 end
 
 

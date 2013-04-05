@@ -31,6 +31,8 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    bullet (4.5.0)
+      uniform_notifier
     capistrano (2.14.2)
       highline
       net-scp (>= 1.0.0)
@@ -156,6 +158,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.2.0)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -163,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bullet
   capistrano
   client_side_validations (~> 3.2.2)
   client_side_validations-simple_form (~> 2.0.1)
