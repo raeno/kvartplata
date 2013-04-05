@@ -178,7 +178,7 @@ DEPENDENCIES
   rvm
   rvm-capistrano
   sass-rails (~> 3.2.5)
-  simple_form (~> 2.0.3)
+  simple_form (~> 2.0.4)
   simplecov
   test-unit
   therubyracer

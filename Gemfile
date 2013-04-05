@@ -32,7 +32,7 @@ gem 'pg', '~> 0.15.0'
 
 gem 'jquery-rails'
 
-gem 'simple_form', '~>2.1.0'
+gem 'simple_form', '~>2.0.4'
 gem 'client_side_validations', '~>3.2.2'
 gem 'client_side_validations-simple_form', '~>2.0.1'
 
