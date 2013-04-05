@@ -87,7 +87,7 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     orm_adapter (0.4.0)
-    pg (0.14.1)
+    pg (0.15.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -115,10 +115,10 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    ref (1.0.2)
+    ref (1.0.4)
     russian (0.6.0)
       i18n (>= 0.5.0)
-    rvm (1.11.3.6)
+    rvm (1.11.3.7)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
     sass (3.2.7)
@@ -172,7 +172,7 @@ DEPENDENCIES
   factory_girl_rails
   haml
   jquery-rails
-  pg (~> 0.14.1)
+  pg (~> 0.15.0)
   rails (~> 3.2.13)
   russian (~> 0.6.0)
   rvm
