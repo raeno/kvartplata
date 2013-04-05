@@ -2,8 +2,19 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
+  $(window).scroll ->
+    if $(@).scrollTop()
+      $('.toTop').fadeIn()
+    else
+      $('.toTop').fadeOut()
+
+  $('.toTop').click ->
+    $('.toTop').hide()
+    $('body').scrollTop(0)
+
   showMoreLink = $('.show-more-tariffs')
   showMoreLink.click ->
+    $('.toTop').hide()
     $('.other-tariffs').toggle()
 
     if showMoreLink.attr('data-status') == 'collapsed'

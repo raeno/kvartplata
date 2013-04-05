@@ -37,6 +37,23 @@
 
 }
 
+.toTop {
+  position: fixed;
+  display: none;
+  bottom: 60px;
+  right: 43%;
+
+  font-family: 'Open Sans';
+  font-size: 32px;
+  color: royalblue;
+  cursor: pointer;
+
+  &:hover {
+    color: steelblue;
+  }
+
+}
+
 .tariff {
   margin-left: 20%;
 
