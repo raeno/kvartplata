@@ -5,11 +5,18 @@ class Tariff < ActiveRecord::Base
 
   validates :cold_water, :hot_water, :energy, :utilities, numericality: {greater_than: 0.01}
 
-  def self.that_was(month)
-    Tariff.where('start_date <= :month AND end_date >= :month', month: month).last
+  def previous
+    Tariff.where('end_date < ?',start_date).last(:order => 'end_date') if Tariff.all.size > 1
   end
 
-  def previous
-    Tariff.where('end_date < ?',start_date).last(:order => 'end_date')
+  class << self
+
+    def is_there_more?
+      Tariff.all.size > 2
+    end
+
+    def that_was(month)
+      Tariff.where('start_date <= :month AND end_date >= :month', month: month).last
+    end
   end
 end

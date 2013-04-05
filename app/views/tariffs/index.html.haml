@@ -5,10 +5,11 @@
 
 
 =render :partial => 'tariffs/tariff_brief', :locals => {:tariff => current_tariff}
-=render :partial => 'tariffs/tariff_brief', :locals => {:tariff => previous_tariff}
+- if previous_tariff
+  =render :partial => 'tariffs/tariff_brief', :locals => {:tariff => previous_tariff}
 
-%span{:class => 'show-more-tariffs', :data => {:status => 'collapsed'}} #{'▾ показать все'.html_safe}
-
-.other-tariffs
-  - @tariffs.each do |tariff|
-    = render :partial => 'tariffs/tariff_brief', :locals => {:tariff => tariff} unless (tariff == current_tariff or tariff == previous_tariff)
+- if Tariff.is_there_more?
+  %span{:class => 'show-more-tariffs', :data => {:status => 'collapsed'}} #{'▾ показать все'.html_safe}
+  .other-tariffs
+    - @tariffs.each do |tariff|
+      = render :partial => 'tariffs/tariff_brief', :locals => {:tariff => tariff} unless (tariff == current_tariff or tariff == previous_tariff)

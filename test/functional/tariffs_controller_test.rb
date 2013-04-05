@@ -6,7 +6,7 @@ class TariffsControllerTest < ActionController::TestCase
     sign_in create(:user)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:tariffs)
