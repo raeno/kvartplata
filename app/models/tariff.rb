@@ -11,7 +11,7 @@ class Tariff < ActiveRecord::Base
 
   class << self
 
-    def is_there_more?
+    def is_there_more_than_two?
       Tariff.all.size > 2
     end
 

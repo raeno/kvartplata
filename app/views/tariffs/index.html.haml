@@ -8,7 +8,7 @@
 - if previous_tariff
   =render :partial => 'tariffs/tariff_brief', :locals => {:tariff => previous_tariff}
 
-- if Tariff.is_there_more?
+- if Tariff.is_there_more_than_two?
   %span{:class => 'show-more-tariffs', :data => {:status => 'collapsed'}} #{'▾ показать все'.html_safe}
   .other-tariffs
     - @tariffs.each do |tariff|

@@ -22,4 +22,19 @@ class TariffTest < ActiveSupport::TestCase
     assert_equal current_tariff, Tariff.that_was(2.year.since)
   end
 
+  test 'is_there_more_than_two? should return true if there more than two tariffs' do
+
+    assert_false Tariff.is_there_more_than_two?
+
+    create(:tariff)
+    assert_false Tariff.is_there_more_than_two?
+
+    create(:tariff)
+    assert_false Tariff.is_there_more_than_two?
+
+    create(:tariff)
+    assert_true Tariff.is_there_more_than_two?
+  end
+
+
 end
