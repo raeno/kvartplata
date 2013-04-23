@@ -6,7 +6,6 @@
   = f.input :energy, label:'электроэнергия', placeholder: current_tariff.energy.to_s
 
   = f.input :start_date, label: 'дата начала',  as: :string, input_html: { :class => :datepicker }
-  = f.input :end_date, label: 'дата окончания', as: :string, input_html: { :class => :datepicker },
-   placeholder: 'оставьте пустым для текущего тарифа'
+  = f.input :end_date, label: 'дата окончания', as: :string, input_html: { :class => :datepicker }
 
   = f.submit 'сохранить', :class => 'btn btn-primary span2'
