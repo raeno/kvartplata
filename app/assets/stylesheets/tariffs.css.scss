@@ -51,8 +51,29 @@
   &:hover {
     color: steelblue;
   }
-
 }
+
+.new-tariff {
+  color: royalblue;
+  font-family: 'Open Sans';
+  margin-left: 20%;
+  line-height: 3em;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 24px;
+    vertical-align: -2px;
+  }
+  span {
+    font-size: 22px;
+    margin-left: 8px;
+  }
+}
+
+
 
 .tariff {
   margin-left: 20%;

@@ -1,8 +1,11 @@
 - previous_tariff = current_tariff.previous
 
-%div.toTop
+.toTop
   %i.icon-arrow-up
 
+= link_to new_tariff_path, {:class => 'new-tariff'} do
+  %i.icon-plus
+  %span добавить тариф
 
 =render :partial => 'tariffs/tariff_brief', :locals => {:tariff => current_tariff}
 - if previous_tariff
