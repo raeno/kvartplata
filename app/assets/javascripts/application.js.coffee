@@ -32,7 +32,7 @@ $ ->
       $('.login-form .loading').hide()
 
   $('.datepicker').datepicker(
-    'format': 'dd-mm-yyy',
+    'format': 'dd-mm-yyyy',
     'weekStart': 1,
     'language': 'ru',
     'todayHighlight': true
