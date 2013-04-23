@@ -15,6 +15,8 @@
 #= require_tree .
 #= require rails.validations
 #= require rails.validations.simple_form
+#= require bootstrap-datepicker/core
+#= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
 
 $ ->
   $('.login-form .btn').click ->
@@ -28,4 +30,11 @@ $ ->
       $('.login-form .error-message').html('<p>' + data.errors + '</p>')
       $('.actions').show()
       $('.login-form .loading').hide()
+
+  $('.datepicker').datepicker(
+    'format': 'dd-mm-yyy',
+    'weekStart': 1,
+    'language': 'ru',
+    'todayHighlight': true
+  );
 

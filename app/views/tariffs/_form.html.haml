@@ -1,14 +1,12 @@
-= form_for(@tariff) do |f|
-  - if @tariff.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@tariff.errors.count, 'error')
-        prohibited this tariff from being saved:
+= simple_form_for @tariff, :html => { :class => 'form-horizontal'},  :validate => true  do |f|
 
-      %ul
-        - @tariff.errors.full_messages.each do |msg|
-          %li
-            = msg
+  = f.input :hot_water, label: 'горячая вода', placeholder: current_tariff.hot_water.to_s
+  = f.input :cold_water,  label: 'холодная вода', placeholder: current_tariff.cold_water.to_s
+  = f.input :utilities,  label: 'водоотведение', placeholder: current_tariff.utilities.to_s
+  = f.input :energy, label:'электроэнергия', placeholder: current_tariff.energy.to_s
 
-  .actions
-    = f.submit
+  = f.input :start_date, label: 'дата начала',  as: :string, input_html: { :class => :datepicker }
+  = f.input :end_date, label: 'дата окончания', as: :string, input_html: { :class => :datepicker },
+   placeholder: 'оставьте пустым для текущего тарифа'
+
+  = f.submit 'сохранить', :class => 'btn btn-primary span2'
