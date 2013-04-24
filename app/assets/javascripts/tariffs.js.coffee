@@ -12,6 +12,11 @@ $ ->
     $('.toTop').hide()
     $('body').scrollTop(0)
 
+  $('.tariff').hoverIntent(
+    -> $('.icons',@).fadeIn()
+    -> $('.icons',@).fadeOut()
+  )
+
   showMoreLink = $('.show-more-tariffs')
   showMoreLink.click ->
     $('.toTop').hide()
