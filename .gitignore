@@ -18,6 +18,7 @@ public/assets
 /tmp
 .idea/
 config/database.yml
+config/smtp_setting.yml
 
 # Ignore SimpleCov coverage report
 coverage/
