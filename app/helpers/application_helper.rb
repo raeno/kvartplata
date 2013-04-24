@@ -8,10 +8,6 @@ module ApplicationHelper
     @last_reports ||= Report.all(:order => 'date DESC', :limit => 3)
   end
 
-  def current_tariff
-    @current_tariff ||= Tariff.first(:order => 'end_date DESC')
-  end
-
   def current_apartment
     @current_apartment ||= ApartmentInfo.last
   end
