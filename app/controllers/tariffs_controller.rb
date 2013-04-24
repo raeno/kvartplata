@@ -78,6 +78,7 @@ class TariffsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tariffs_url }
       format.json { head :no_content }
+      format.js { render js: %(window.location.href='#{tariffs_url}') }
     end
   end
 end

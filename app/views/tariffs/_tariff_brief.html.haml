@@ -9,7 +9,7 @@
     .icons
       = link_to edit_tariff_path(tariff) do
         %i.icon-pencil{:title => 'редактировать тариф'}
-      %i.icon-remove{:title => 'удалить тариф' }
+      %i.icon-remove{:title => 'удалить тариф', :data => {:url => "#{tariff_path(tariff)}" }}
   %div{:class => 'tariff-body'}
     .names.span3
       %p горячая вода

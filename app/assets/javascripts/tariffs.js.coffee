@@ -17,6 +17,15 @@ $ ->
     -> $('.icons',@).fadeOut()
   )
 
+  $('.icon-remove').click ->
+    url = $(@).attr('data-url') + '.js'
+    bootbox.confirm 'Вы уверены, что хотите удалить тариф?', (result) ->
+      if result
+        $.ajax
+          url: url,
+          type: 'DELETE',
+
+
   showMoreLink = $('.show-more-tariffs')
   showMoreLink.click ->
     $('.toTop').hide()
