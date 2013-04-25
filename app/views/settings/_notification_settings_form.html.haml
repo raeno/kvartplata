@@ -1,0 +1,6 @@
+= simple_form_for notification_settings, :url => save_settings_path, :method => :post, :html => { :class => 'form-horizontal'},  :validate => true  do |f|
+  = f.input :enabled, :label => 'включить уведомления'
+  = f.input :notify_by_email, :label => 'уведомлять по почте?'
+  = f.input :notify_by_phone, :label => 'уведомлять SMS?'
+  = f.input :notification_datetime, :label => 'день уведомления'
+  = f.input :notification_datetime, :label => 'время уведомления', :ignore_date => true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425074245) do
+ActiveRecord::Schema.define(:version => 20130425082250) do
 
   create_table "apartment_infos", :force => true do |t|
     t.string   "owner"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130425074245) do
     t.integer  "user_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.boolean  "enabled"
   end
 
   create_table "reports", :force => true do |t|

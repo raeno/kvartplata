@@ -1,1 +1,17 @@
-%h1 Settings
+%h2 настройки
+.tabbable.tabs-left
+  %ul.nav.nav-tabs
+    %li.active
+      %a{:href => '#general',:data => {:toggle => :tab}} общие
+    %li
+      %a{:href => '#notifications',:data => {:toggle => :tab}} уведомления
+    %li
+      %a{:href => '#services',:data => {:toggle => :tab}} интеграция
+
+  .tab-content
+    #general.tab-pane.active
+      %p здесь обшие настройки
+    #notifications.tab-pane
+      = render :partial => 'settings/notification_settings_form', :locals => { :notification_settings => @user.notification_settings}
+    #services.tab-pane
+      %p может и тут чо будет

@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   has_one :notification_settings
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :notification_settings_id
   # attr_accessible :title, :body
 end

@@ -13,14 +13,22 @@ Tariff.delete_all
 Report.delete_all
 ApartmentInfo.delete_all
 User.delete_all
+NotificationSettings.delete_all
 
-User.create(
+
+user = User.create(
     :email => 'admin@kvartplata.com',
     :password => 'password',
     :password_confirmation => 'password',
     :first_name => 'Василий',
-    :last_name => 'Плюшкин'
+    :last_name => 'Плюшкин',
 )
+
+user.notification_settings = NotificationSettings.create(
+    :enabled => false,
+    :notify_by_email => false,
+    :notify_by_phone => false,
+    :notification_datetime => DateTime.now)
 
 ApartmentInfo.create(
     :owner => 'Плюшкин В.И',

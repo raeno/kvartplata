@@ -7,5 +7,7 @@ FactoryGirl.define do
     password_confirmation 'password'
     first_name 'Admin'
     last_name 'Beard'
+
+    notification_settings
   end
 end
