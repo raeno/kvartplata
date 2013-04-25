@@ -9,6 +9,7 @@ Kvartplata::Application.routes.draw do
 
   scope '(:locale)' do
     resources :metrics, :tariffs
+    resources :settings, :only => [:index]
     resources :reports, :except => [:show]
     get '/reports/:year/:month', :controller => :reports, :action => :show, :as => 'report_year_month'
     authenticated :user do
