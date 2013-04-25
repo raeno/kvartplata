@@ -59,6 +59,7 @@ gem 'capistrano'
 
 gem 'chronic'
 
+gem 'whenever', :require => false
 
 
 

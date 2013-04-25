@@ -164,6 +164,9 @@ GEM
     uniform_notifier (1.2.0)
     warden (1.2.1)
       rack (>= 1.0)
+    whenever (0.8.2)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -194,3 +197,4 @@ DEPENDENCIES
   timecop
   uglifier (>= 1.2.3)
   unicorn
+  whenever
