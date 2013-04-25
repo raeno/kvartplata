@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326131927) do
+ActiveRecord::Schema.define(:version => 20130425074245) do
 
   create_table "apartment_infos", :force => true do |t|
     t.string   "owner"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(:version => 20130326131927) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.integer  "report_id"
+  end
+
+  create_table "notification_settings", :force => true do |t|
+    t.boolean  "notify_by_email"
+    t.boolean  "notify_by_phone"
+    t.datetime "notification_datetime"
+    t.integer  "user_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "reports", :force => true do |t|
@@ -60,20 +69,22 @@ ActiveRecord::Schema.define(:version => 20130326131927) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                    :default => "", :null => false
+    t.string   "encrypted_password",       :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",            :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "phone"
+    t.integer  "notification_settings_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
