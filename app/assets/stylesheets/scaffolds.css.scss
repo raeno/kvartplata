@@ -1,3 +1,7 @@
+.report {
+  font-family: 'Open Sans';
+  font-size: 18px;
+}
 
 .navbar {
 
@@ -85,6 +89,10 @@ pre {
 .form-horizontal .control-label {
   text-align: left;
   font-size: 16px;
+}
+
+.nav.nav-tabs > li {
+  padding-bottom: 8px;
 }
 
 .user-nav {

@@ -28,7 +28,10 @@ user.notification_settings = NotificationSettings.create(
     :enabled => false,
     :notify_by_email => false,
     :notify_by_phone => false,
-    :notification_datetime => DateTime.now)
+    :day => 20,
+    :hour => 12,
+    :minute => 5
+)
 
 ApartmentInfo.create(
     :owner => 'Плюшкин В.И',

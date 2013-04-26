@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425082250) do
+ActiveRecord::Schema.define(:version => 20130426090208) do
 
   create_table "apartment_infos", :force => true do |t|
     t.string   "owner"
@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(:version => 20130425082250) do
   create_table "notification_settings", :force => true do |t|
     t.boolean  "notify_by_email"
     t.boolean  "notify_by_phone"
-    t.datetime "notification_datetime"
     t.integer  "user_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.boolean  "enabled"
+    t.integer  "day"
+    t.integer  "hour"
+    t.integer  "minute"
   end
 
   create_table "reports", :force => true do |t|

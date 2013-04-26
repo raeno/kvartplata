@@ -1,4 +1,12 @@
 class NotificationSettings < ActiveRecord::Base
-  attr_accessible :notification_datetime, :notify_by_email, :notify_by_phone, :enabled
+  attr_accessible :notify_by_email, :notify_by_phone, :enabled, :day, :hour, :minute
   belongs_to :user
+
+  after_save :update_notification_shedule
+
+
+  def update_notification_shedule
+
+  end
+
 end
