@@ -3,4 +3,4 @@ ru:
     formats:
       month:  "%B"
       month_year: "%B %Y"
-      day_month_year: "%d.%m.%Y"
+      day_month_year: "%d-%m-%Y"
