@@ -2,9 +2,10 @@ require "bundler/capistrano"
 require 'rvm'
 require 'rvm/capistrano'
 
-set :domain, "kvartplata.com"
-set :application, "kvartplata"
-set :repository,  "git@github.com:raeno/kvartplata.git"
+set :domain, 'kvartplata.pinkpanzer.ru'
+set :application, 'kvartplata'
+set :repository, 'git@github.com:raeno/kvartplata.git'
+
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -14,17 +15,17 @@ role :app, domain                          # This may be the same as your `Web` 
 role :db,  domain, :primary => true # This is where Rails migrations will run
 
 set :scm, "git"
-set :branch, 'master'
+set :branch, 'develop'
 set :scm_verbose, true
 set :use_sudo, false
 set :rails_env, :production
 
-set :ssh_options, { :forward_agent => true }
+set :ssh_options, { :forward_agent => true, :port => 52 }
 set :deploy_via, :remote_cache
 
 set :user,        'raeno'
 
-set :deploy_to, "/home/#{user}/public_html/kvartplata"
+set :deploy_to, "/home/#{user}/deployed/kvartplata"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -54,7 +55,7 @@ namespace :deploy do
 end
 
 
-after "deploy:update_code", :bundle_install, :copy_database_config
+after "deploy:update_code", :bundle_install, :copy_configs
 after "deploy", "rvm:trust_rvmrc"
 
 desc 'install necessary prerequisites'
@@ -62,9 +63,9 @@ task :bundle_install, :roles => :app do
   run "cd #{release_path} && bundle install"
 end
 
-desc 'copy database.yml from shared'
-task :copy_database_config do
-  run "cp #{shared_path}/database.yml #{release_path}/config/database.yml"
+desc 'copy configs'
+task :copy_configs do
+  run "cp #{shared_path}/configs/*.yml #{release_path}/config/"
 end
 
 namespace :rvm do
