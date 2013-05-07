@@ -47,7 +47,7 @@ class MetricsController < ApplicationController
 
     respond_to do |format|
       if @metric.save
-        format.html { @metric.report ? redirect_to(@metric.report) : redirect_to(new_metric_path) }
+        format.html { @metric.report ? redirect_to(@metric.report.month_year_path) : redirect_to(new_metric_path) }
         format.json { render json: @metric, status: :created, location: @metric }
       else
         format.html { render action: 'new' }
