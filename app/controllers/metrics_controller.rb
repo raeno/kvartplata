@@ -27,6 +27,7 @@ class MetricsController < ApplicationController
   # GET /metrics/new.json
   def new
     @metric = Metric.new
+    @metric.month = DateTime.now
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +44,6 @@ class MetricsController < ApplicationController
   # POST /metrics.json
   def create
     @metric = Metric.new(params[:metric])
-    @metric.month= DateTime.now
 
     respond_to do |format|
       if @metric.save

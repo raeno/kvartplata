@@ -4,3 +4,4 @@ ru:
       month:  "%B"
       month_year: "%B %Y"
       day_month_year: "%d-%m-%Y"
+      short_month_year: "%m/%Y"

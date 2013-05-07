@@ -22,5 +22,10 @@
 
   .new_metric {
     margin-left: 100px;
+
+    #metrics_with_data {
+      display: none;
+    }
   }
 }
+

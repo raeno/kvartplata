@@ -15,7 +15,7 @@
 #= require_tree .
 #= require rails.validations
 #= require rails.validations.simple_form
-#= require bootstrap-datepicker/core
+#= require bootstrap-datepicker
 #= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
 
 $ ->

@@ -40,6 +40,10 @@ class Metric < ActiveRecord::Base
     )
   end
 
+  def after_initialize
+    @attributes['month'] = Chronic.parse(@attributes[:month]) unless @attributes[:month].blank?
+  end
+
   def utilities
     hot_counter_bathroom + hot_counter_kitchen + cold_counter_bathroom + cold_counter_kitchen
   end
@@ -56,22 +60,33 @@ class Metric < ActiveRecord::Base
     self.month = month.round_to_month
   end
 
-  def self.time_to_pay?
-    metric = Metric.where('month = ?', DateTime.now.round_to_month).last
-    if metric.nil?
-      return Metric.near_payment_day?
-    end
-    false
-  end
-
-  def self.near_payment_day?
-    3.days.since.day >= PAYMENT_DAY
-  end
-
   def create_report
     report = Report.from_metric(self)
     report.save unless report.nil?
     self.report = report
   end
+
+  class << self
+
+    def time_to_pay?
+      metric = Metric.where('month = ?', DateTime.now.round_to_month).last
+      if metric.nil?
+        return Metric.near_payment_day?
+      end
+      false
+    end
+
+    def near_payment_day?
+      3.days.since.day >= PAYMENT_DAY
+    end
+
+    def has_data
+      @has_data ||= Metric.all.map { |metric| metric.month.strftime('%m/%Y') }
+    end
+
+  end
+
+
+
 
 end

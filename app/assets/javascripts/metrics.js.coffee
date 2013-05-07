@@ -12,3 +12,12 @@ $ ->
             attr: element.attr('name').match(/\w*[(\w+)]/g)[1]
           async: false).status == 404
       return '\u25B4 не должно быть меньше прошлого месяца'
+
+  $('#monthsDatepicker').datepicker(
+    'language': 'ru',
+    'viewMode': 'months',
+    'minViewMode': 'months',
+    'format': 'mm/yyyy',
+    'markedDates': $('#metrics_with_data').attr('data-metrics'),
+    'autoclose': true
+  )

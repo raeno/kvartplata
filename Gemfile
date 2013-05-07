@@ -18,7 +18,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.2'
 
   gem 'uglifier', '>= 1.2.3'
-  gem 'bootstrap-datepicker-rails'
+  gem 'bootstrap-datepicker-markedDates-rails', :git => 'git://github.com/raeno/bootstrap-datepicker-markedDates-rails.git'
 end
 
 group :test, :development do
@@ -60,6 +60,7 @@ gem 'capistrano'
 gem 'chronic'
 
 gem 'whenever', :require => false
+
 
 
 

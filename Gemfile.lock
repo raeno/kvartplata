@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/raeno/bootstrap-datepicker-markedDates-rails.git
+  revision: f2a0ef0a14dc92a30b7ee458bbde3fde54e18ad1
+  specs:
+    bootstrap-datepicker-markedDates-rails (1.0.1)
+      railties (~> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,8 +37,6 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-datepicker-rails (1.0.0.5)
-      railties (>= 3.0)
     builder (3.0.4)
     bullet (4.5.0)
       uniform_notifier
@@ -172,7 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-datepicker-rails
+  bootstrap-datepicker-markedDates-rails!
   bullet
   capistrano
   chronic
