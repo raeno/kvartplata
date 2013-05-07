@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426090208) do
+ActiveRecord::Schema.define(:version => 20130507191737) do
 
   create_table "apartment_infos", :force => true do |t|
     t.string   "owner"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(:version => 20130426090208) do
   end
 
   create_table "metrics", :force => true do |t|
-    t.float    "cold_counter_kitchen"
-    t.float    "hot_counter_kitchen"
-    t.float    "cold_counter_bathroom"
-    t.float    "hot_counter_bathroom"
-    t.float    "energy_counter"
+    t.decimal  "cold_counter_kitchen",  :precision => 16, :scale => 2
+    t.decimal  "hot_counter_kitchen",   :precision => 16, :scale => 2
+    t.decimal  "cold_counter_bathroom", :precision => 16, :scale => 2
+    t.decimal  "hot_counter_bathroom",  :precision => 16, :scale => 2
+    t.decimal  "energy_counter",        :precision => 16, :scale => 2
     t.datetime "month"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
     t.integer  "report_id"
   end
 
@@ -47,28 +47,28 @@ ActiveRecord::Schema.define(:version => 20130426090208) do
 
   create_table "reports", :force => true do |t|
     t.datetime "date"
-    t.float    "cold_water"
-    t.float    "hot_water"
-    t.float    "utilities"
-    t.float    "energy"
-    t.float    "total"
+    t.decimal  "cold_water",         :precision => 16, :scale => 2
+    t.decimal  "hot_water",          :precision => 16, :scale => 2
+    t.decimal  "utilities",          :precision => 16, :scale => 2
+    t.decimal  "energy",             :precision => 16, :scale => 2
+    t.decimal  "total",              :precision => 16, :scale => 2
     t.integer  "current_metric_id"
     t.integer  "previous_metric_id"
     t.integer  "tariff_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
   create_table "tariffs", :force => true do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.float    "cold_water"
-    t.float    "hot_water"
-    t.float    "energy"
-    t.float    "utilities"
+    t.decimal  "cold_water", :precision => 16, :scale => 2
+    t.decimal  "hot_water",  :precision => 16, :scale => 2
+    t.decimal  "energy",     :precision => 16, :scale => 2
+    t.decimal  "utilities",  :precision => 16, :scale => 2
     t.text     "comments"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "users", :force => true do |t|
