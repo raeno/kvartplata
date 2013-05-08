@@ -4,6 +4,14 @@ class NotificationSettings < ActiveRecord::Base
 
   after_save :update_notification_shedule
 
+  after_initialize :set_dafault_day_and_time
+
+  def set_dafault_day_and_time
+    self.day = 20
+    self.hour = 18
+    self.minute = 5
+  end
+
 
   def update_notification_shedule
 
