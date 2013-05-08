@@ -1,20 +1,31 @@
-header, .brand, .aside, .side-widget, .main-header, .report-header {
+
+.navbar {
   display: none;
 }
 
-.report {
-  padding-bottom: 0;
+body {
+  padding: 0;
 }
 
-.print-header {
-  display: visible;
-  margin-bottom: 2em;
-  p {
-    font-size: 18px;
-  }
+.brand, .aside, .side-widget, .main-header, .report-header, .navbar {
+  display: none;
 }
 
 .rounded-values-report {
-  margin-top: 15em;
+  margin-top: 5em;
 }
 
+.container {
+
+  .report {
+    padding-bottom: 0;
+
+    .print-header {
+      display: visible;
+      margin-bottom: 2em;
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
