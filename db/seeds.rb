@@ -16,6 +16,7 @@ User.delete_all
 NotificationSettings.delete_all
 
 
+
 user = User.create(
     :email => 'admin@kvartplata.com',
     :password => 'password',
@@ -23,6 +24,13 @@ user = User.create(
     :first_name => 'Василий',
     :last_name => 'Плюшкин',
 )
+
+user.apartment_info = ApartmentInfo.create(
+    :owner => 'Плюшкин В.И',
+    :number => 14,
+    :address => 'Бугаева 82'
+)
+
 Tariff.create(
     :start_date =>6.month.ago,
     :end_date => 2.year.since,
@@ -41,11 +49,7 @@ Tariff.create(
 #    :minute => 5
 #)
 #
-ApartmentInfo.create(
-    :owner => 'Плюшкин В.И',
-    :number => 14,
-    :address => 'Бугаева 82'
-)
+
 #
 #(2..10).each do |i|
 #  Tariff.create(

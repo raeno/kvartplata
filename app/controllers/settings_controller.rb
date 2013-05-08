@@ -17,4 +17,14 @@ class SettingsController < ApplicationController
     end
   end
 
+  def save_apartment
+    @apartment_info =  current_user.apartment_info
+
+    respond_to do |format|
+      if @apartment_info.update_attributes(params[:apartment_info])
+        format.html { redirect_to settings_path, notice: 'настройки успешно сохранены' }
+      end
+    end
+  end
+
 end

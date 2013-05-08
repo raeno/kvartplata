@@ -2,7 +2,7 @@
 .tabbable.tabs-left
   %ul.nav.nav-tabs
     %li.active
-      %a{:href => '#general',:data => {:toggle => :tab}} общие
+      %a{:href => '#general',:data => {:toggle => :tab}} инфо
     %li
       %a{:href => '#notifications',:data => {:toggle => :tab}} уведомления
     %li
@@ -10,8 +10,8 @@
 
   .tab-content
     #general.tab-pane.active
-      %p здесь обшие настройки
+      = render :partial => 'settings/information_settings_form', :locals => {:apartment_info => @user.apartment_info}
     #notifications.tab-pane
       = render :partial => 'settings/notification_settings_form', :locals => { :notification_settings => @user.notification_settings}
     #services.tab-pane
-      %p может и тут чо будет
+      %p в следующих версиях

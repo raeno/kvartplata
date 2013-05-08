@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def current_apartment
-    @current_apartment ||= ApartmentInfo.last
+    current_user.apartment_info
   end
 
   def resource

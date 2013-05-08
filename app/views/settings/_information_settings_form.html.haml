@@ -1,0 +1,8 @@
+.settings-form
+  = simple_form_for apartment_info, :url => save_apartment_settings_path, :method => :post, :html => { :class => 'form-horizontal'},
+    :validate => true  do |f|
+    = f.input :owner, :label => 'владелец'
+    = f.input :address, :label => 'адрес дома'
+    = f.input :number, :label => 'номер квартиры'
+    = f.submit 'сохранить', :class => 'btn btn-primary span2'
+

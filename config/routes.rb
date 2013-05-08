@@ -12,6 +12,7 @@ Kvartplata::Application.routes.draw do
     resources :settings, :only => [:index] do
       collection do
         post :save
+        post :save_apartment
       end
     end
     resources :reports, :except => [:show]
