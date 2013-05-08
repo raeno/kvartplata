@@ -1,5 +1,6 @@
 .settings-form
-  = simple_form_for notification_settings, :url => save_settings_path, :method => :post, :html => { :class => 'form-horizontal'},  :validate => true  do |f|
+  = simple_form_for notification_settings, :url => save_settings_path, :method => :post, :html => { :class => 'form-horizontal'},
+    :validate => true  do |f|
     = f.input :enabled, :label => 'включить уведомления', :wrapper => :inline_checkbox
     .inner
       = f.input :notify_by_email, :label => 'почта', :wrapper => :inline_checkbox

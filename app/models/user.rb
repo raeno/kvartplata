@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :notification_settings
+  has_one :notification_settings, :autosave => true
 
-  # Setup accessible (or protected) attributes for your model
+
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :notification_settings_id
-  # attr_accessible :title, :body
+
+  before_create { self.notification_settings = NotificationSettings.new }
+
 end
