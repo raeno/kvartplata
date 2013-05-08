@@ -15,7 +15,7 @@ role :app, domain                          # This may be the same as your `Web` 
 role :db,  domain, :primary => true # This is where Rails migrations will run
 
 set :scm, "git"
-set :branch, 'develop'
+set :branch, 'master'
 set :scm_verbose, true
 set :use_sudo, false
 set :rails_env, :production
