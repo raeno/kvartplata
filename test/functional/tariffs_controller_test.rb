@@ -21,8 +21,7 @@ class TariffsControllerTest < ActionController::TestCase
     assert_difference('Tariff.count') do
       post :create, tariff: FactoryGirl.attributes_for(:tariff)
     end
-
-    assert_redirected_to tariff_path(assigns(:tariff))
+    assert_redirected_to tariffs_path
   end
 
   test 'should render tariff/new tamplate if tariff creation failed' do
@@ -46,7 +45,7 @@ class TariffsControllerTest < ActionController::TestCase
 
   test 'should update tariff' do
     put :update, id: @tariff, tariff: {  }
-    assert_redirected_to tariff_path(assigns(:tariff))
+    assert_redirected_to tariffs_path
   end
 
   test 'should render tariff/edit template if tariff validations failed' do
