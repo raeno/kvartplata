@@ -5,6 +5,8 @@ FactoryGirl.define do
     enabled false
     notify_by_email false
     notify_by_phone false
-    notification_datetime 1.hour.since
+    day 20
+    hour 18
+    minute 0
   end
 end
