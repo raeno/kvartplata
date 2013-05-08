@@ -32,10 +32,10 @@ class MetricsControllerTest < ActionController::TestCase
   end
 
   test 'should create metric' do
-    assert_difference('Metric.count') do
+    assert_difference 'Metric.count', +1 do
       post :create, metric: FactoryGirl.attributes_for(:metric)
     end
-    assert_redirected_to Report.last
+    assert_redirected_to Report.last.month_year_path
   end
 
   test 'should render new metric form if validations failed for metric' do
