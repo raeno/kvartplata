@@ -18,10 +18,6 @@
           %li
             %h3
               %a.brand{:href => '/'} Kvartplata
-          %li
-            = link_to 'новости', tariffs_path
-          %li
-            = link_to 'тарифы', tariffs_path
 
         .user-nav
           - if user_signed_in?
@@ -30,14 +26,9 @@
             = link_to 'выйти', destroy_user_session_path, method: :delete
           - else
             .dropdown
-              = link_to 'войти','#', :class => 'dropdown-toggle', :data => {:toggle => 'dropdown'}
+              = link_to 'войти','#', :class => 'dropdown-toggle btn', :data => {:toggle => 'dropdown'}
               .dropdown-menu{:role => 'menu',:aria=>{:labelledby=>'dLabel'}}
                 =render :partial => 'devise/sessions/form'
 
   .row
-    %section.content.span5.offset2
-      .report
-        = yield
-    %aside.aside.span4
-      %section.side_widget
-        = render :partial => 'tariffs/side_widget', :locals => {tariff: current_tariff}
+    = yield

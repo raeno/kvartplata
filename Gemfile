@@ -27,6 +27,12 @@ group :test, :development do
 
   gem 'simplecov', :require => false
 
+  gem 'rspec'
+  gem 'rspec-rails', '~> 2.0'
+
+  gem 'database_cleaner'
+  gem 'email_spec'
+
   gem 'bullet'
 end
 
@@ -61,7 +67,7 @@ gem 'chronic'
 
 gem 'whenever', :require => false
 
-
+gem 'spec_converter'
 
 
 # To use debugger

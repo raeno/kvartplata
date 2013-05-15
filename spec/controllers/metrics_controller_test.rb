@@ -1,73 +1,82 @@
-require 'test_helper'
+require 'spec_helper'
 
-class MetricsControllerTest < ActionController::TestCase
-  setup do
+describe MetricsController do
+  before(:each) do
     @metric = create(:metric)
     sign_in create(:user)
   end
 
-  test 'should get index' do
+  it 'should get index' do
     get :index
     assert_response :success
-    assert_not_nil assigns(:metrics)
+    assigns(:metrics).should.not == nil
   end
 
-  test 'should correctly return page if locale supported' do
+  it 'should correctly return page if locale supported' do
     get :index, :locale => 'ru'
     assert_response :success
-    assert_not_nil assigns(:metrics)
+    assigns(:metrics).should.not == nil
   end
 
-  test 'should show notice when locale is not supported' do
+  it 'should show notice when locale is not supported' do
     get :index, :locale => 'br'
     assert_response :success
-    assert flash[:notice]
-    assert_equal flash[:notice], 'br translation not available'
-    assert_not_nil assigns(:metrics)
+    flash[:notice].should.not == nil
+    'br translation not available'.should == flash[:notice]
+    assigns(:metrics).should.not == nil
   end
 
-  test 'should get new' do
+  it 'should get new' do
     get :new
     assert_response :success
   end
 
-  test 'should create metric' do
+  it 'should create metric' do
     assert_difference 'Metric.count', +1 do
       post :create, metric: FactoryGirl.attributes_for(:metric)
     end
     assert_redirected_to Report.last.month_year_path
   end
 
-  test 'should render new metric form if validations failed for metric' do
+  it 'redirect to a new metric if report' do
+    assert_difference 'Metric.count', +1 do
+      post :create, metric: FactoryGirl.attributes_for(:metric)
+    end
+    assert_redirected_to Report.last.month_year_path
+  end
+
+
+
+  it 'should render new metric form if validations failed for metric' do
     assert_no_difference('Metric.count') do
       post :create, metric: FactoryGirl.attributes_for(:metric, :hot_counter_kitchen => -2)
     end
     assert_template 'new'
   end
 
-  test 'should show metric' do
+  it 'should show metric' do
     get :show, id: @metric
     assert_response :success
   end
 
-  test 'should get edit' do
+  it 'should get edit' do
     get :edit, id: @metric
     assert_response :success
   end
 
-  test 'should update metric' do
+  it 'should update metric' do
     put :update, id: @metric, metric: {  }
     assert_redirected_to metric_path(assigns(:metric))
   end
 
-  test 'should redirect to metric edit if metric validations failed' do
+  it 'should redirect to metric edit if metric validations failed' do
     put :update, id: @metric, metric: { :hot_counter_kitchen => -2}
     assert_response :success
     assert_template 'edit'
   end
 
 
-  test 'should destroy metric' do
+  it 'should destroy metric' do
     assert_difference('Metric.count', -1) do
       delete :destroy, id: @metric
     end

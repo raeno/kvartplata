@@ -65,7 +65,13 @@ module Kvartplata
     config.assets.version = '1.0'
 
     config.generators do |g|
-      g.fixture_replacement :factory_girl
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.view_specs false
+      g.helper_specs false
+      g.stylesheets = false
+      g.javascripts = false
+      g.helper = false
     end
 
     config.assets.initialize_on_precompile = false

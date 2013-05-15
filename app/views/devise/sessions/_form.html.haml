@@ -1,14 +1,16 @@
-= simple_form_for resource, :as => resource_name, :url => session_path(resource_name),
- :html => {:class => 'form-vertical login-form'}, :remote => true, :format => :json do |f|
+.login-page
+  = simple_form_for resource, :as => resource_name, :url => session_path(resource_name),
+   :html => {:class => 'form-vertical login-form'}, :remote => true, :format => :json do |f|
 
-  .form-inputs
-    = f.input :email, :placeholder => 'почта', :class => 'dropdown-input', :label => false, :required => false, :autofocus => true
-    = f.input :password, :placeholder => 'пароль', :class => 'dropdown-input', :label => false, :required => false
-  .loading
-    .indicator
-    %span входим на сайт...
+    .form-inputs
+      = f.input :email, :placeholder => 'почта', :class => 'dropdown-input', :label => false,
+                :required => false, :autofocus => true
+      = f.input :password, :placeholder => 'пароль', :class => 'dropdown-input', :label => false, :required => false
+    .loading
+      .indicator
+      %span входим на сайт...
 
-  .error-message
-  .actions
-    = f.button :submit, 'войти', class: 'btn-primary btn-block'
-    = link_to 'забыли пароль?', new_password_path('user'), :class => 'forgot-password'
+    .error-message
+    .actions
+      = f.button :submit, 'войти', class: 'btn-primary btn-block'
+      = link_to 'забыли пароль?', new_password_path('user'), :class => 'forgot-password'

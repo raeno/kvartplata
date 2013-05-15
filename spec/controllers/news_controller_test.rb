@@ -1,17 +1,17 @@
-require 'test_helper'
+require 'spec_helper'
 
-class NewsControllerTest < ActionController::TestCase
+describe NewsController  do
 
-  setup do
+  before(:each) do
     @tariff = create(:tariff)
   end
 
-  test "should get index" do
+  it 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get show" do
+  it 'should get show' do
     get :show
     assert_response :success
   end
