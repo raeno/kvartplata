@@ -2,11 +2,9 @@ require 'spec_helper'
 
 describe NotificationSettings do
 
-  before(:all) do
-    @user = create(:user)
-  end
+  let(:user) { create :user }
 
-  it 'user should have notification_settings' do
-    @user.notification_settings.should.not == nil
+  it 'available as user method' do
+    user.notification_settings.should_not be_nil
   end
 end
