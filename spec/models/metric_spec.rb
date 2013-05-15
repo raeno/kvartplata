@@ -13,15 +13,15 @@ describe Metric do
     all_water_counters_sum = simple_metric.cold_counter_kitchen + simple_metric.hot_counter_kitchen +
                               simple_metric.cold_counter_bathroom + simple_metric.hot_counter_bathroom
 
-    all_water_counters_sum.should be_within(0.01).of simple_metric.utilities
+    all_water_counters_sum.should be_same_float_as simple_metric.utilities
   end
 
   it 'total_cold_water should return sum of all cold counters' do
-    (simple_metric.cold_counter_kitchen + simple_metric.cold_counter_bathroom).should be_within(0.01).of simple_metric.total_cold_water
+    (simple_metric.cold_counter_kitchen + simple_metric.cold_counter_bathroom).should be_same_float_as simple_metric.total_cold_water
   end
 
   it 'total_hot_water should return sum of all hot counters' do
-    (simple_metric.hot_counter_kitchen + simple_metric.hot_counter_bathroom).should be_within(0.01).of simple_metric.total_hot_water
+    (simple_metric.hot_counter_kitchen + simple_metric.hot_counter_bathroom).should be_same_float_as simple_metric.total_hot_water
   end
 
   it 'all counters are positive numbers' do
@@ -56,12 +56,12 @@ describe Metric do
 
     difference = second_metric - first_metric
 
-    difference.cold_counter_kitchen.should be_within(0.01).of 10
-    difference.hot_counter_kitchen.should be_within(0.01).of 20
-    difference.cold_counter_bathroom.should be_within(0.01).of 30
-    difference.hot_counter_bathroom.should be_within(0.01).of 40
+    difference.cold_counter_kitchen.should be_same_float_as 10
+    difference.hot_counter_kitchen.should be_same_float_as 20
+    difference.cold_counter_bathroom.should be_same_float_as 30
+    difference.hot_counter_bathroom.should be_same_float_as 40
 
-    difference.energy_counter.should be_within(0.01).of 100
+    difference.energy_counter.should be_same_float_as 100
 
   end
 
