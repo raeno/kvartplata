@@ -1,10 +1,5 @@
 Kvartplata::Application.routes.draw do
 
-
-  get "news/index"
-
-  get "news/show"
-
   devise_for :users, :controllers => {sessions: 'sessions'}
 
   scope '(:locale)' do
