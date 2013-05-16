@@ -8,10 +8,8 @@ describe TariffsController do
     {}
   end
 
-  let(:user) { create :user }
-
   before do
-    sign_in user
+    signed_in_as_a_valid_user
   end
 
   describe 'GET index' do

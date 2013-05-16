@@ -3,8 +3,6 @@ require 'spec_helper'
 
 describe WelcomeController do
 
-  let(:user) { create :user }
-
   after(:each) do
     Timecop.return
   end
@@ -17,7 +15,7 @@ describe WelcomeController do
   end
 
   context 'when user logged in' do
-    before {  sign_in user }
+    before {  signed_in_as_a_valid_user }
 
     context 'when payment date is near' do
       before do

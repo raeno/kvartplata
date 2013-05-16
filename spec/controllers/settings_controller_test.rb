@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe SettingsController do
 
-  before(:each) do
-    sign_in create(:user)
+  before do
+    signed_in_as_a_valid_user
     create :tariff
   end
 
