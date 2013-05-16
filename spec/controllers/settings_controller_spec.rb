@@ -9,6 +9,6 @@ describe SettingsController do
 
   it 'should get index' do
     get :index
-    assert_response :success
+    response.should be_success
   end
 end
