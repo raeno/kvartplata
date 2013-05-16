@@ -10,7 +10,7 @@ Kvartplata::Application.routes.draw do
         post :save_apartment
       end
     end
-    resources :reports, :except => [:show]
+    resources :reports, :only => [:index]
     get '/reports/:year/:month', :controller => :reports, :action => :show, :as => 'report_year_month'
     authenticated :user do
       root :to => 'welcome#index'
