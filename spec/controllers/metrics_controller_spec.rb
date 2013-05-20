@@ -236,7 +236,7 @@ describe MetricsController do
 
     context 'when not logged in' do
       it 'redirects to sign in page' do
-        put :update, {:id => metric.to_param, :metric => { 'these' => 'params'}}
+        delete :destroy, {:id => metric.to_param}
         response.should redirect_to new_user_session_path
       end
     end
