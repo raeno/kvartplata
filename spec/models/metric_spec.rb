@@ -131,5 +131,13 @@ describe Metric do
       end
     end
   end
+
+  describe '#==' do
+    specify 'metric with same counters values and from same month are same' do
+      first_metric = build :metric_with_counters_10
+      second_metric = build :metric_with_counters_10
+      first_metric.should == second_metric
+    end
+  end
 end
 

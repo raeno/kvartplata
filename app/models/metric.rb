@@ -66,6 +66,15 @@ class Metric < ActiveRecord::Base
     self.report = report
   end
 
+  def ==(another_metric)
+    (self.hot_counter_kitchen == another_metric.hot_counter_kitchen) &&
+    (self.hot_counter_bathroom == another_metric.hot_counter_bathroom) &&
+    (self.cold_counter_bathroom == another_metric.cold_counter_bathroom) &&
+    (self.hot_counter_bathroom == another_metric.hot_counter_bathroom) &&
+    (self.energy_counter == another_metric.energy_counter) &&
+    (self.month == another_metric.month)
+  end
+
   class << self
 
     def time_to_pay?
@@ -83,10 +92,6 @@ class Metric < ActiveRecord::Base
     def has_data
       @has_data ||= Metric.all.map { |metric| metric.month.strftime('%m/%Y') }
     end
-
   end
-
-
-
 
 end

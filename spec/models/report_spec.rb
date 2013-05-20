@@ -3,32 +3,31 @@ require 'spec_helper'
 
 describe Report do
 
-  context 'when we compute_total' do
+  describe '#compute_total' do
     subject { build(:report, cold_water: 10, hot_water: 20, utilities: 30, energy: 40) }
+
     it { should respond_to :compute_total }
     its(:compute_total) { should be_same_float_as 10+20+30+40 }
   end
 
-  context 'when we subtract one metric from another' do
+  describe '#difference' do
     let(:report) { build :report_with_metrics }
-    subject { report.current_metric - report.previous_metric }
 
-    its(:hot_counter_kitchen)   { should be_same_float_as report.difference.hot_counter_kitchen }
-    its(:cold_counter_kitchen)  { should be_same_float_as report.difference.cold_counter_kitchen }
-    its(:hot_counter_bathroom)  { should be_same_float_as report.difference.hot_counter_bathroom }
-    its(:cold_counter_bathroom) { should be_same_float_as report.difference.cold_counter_bathroom }
+    it 'returns difference of report metrics' do
+      report.difference.should == (report.current_metric - report.previous_metric)
+    end
   end
 
-
-  context 'when we look for utilities diff' do
+  describe '#utilities diff' do
     let(:report) { build(:report_with_metrics) }
-    it { report.should respond_to :utilities_diff }
-    it { report.utilities_diff.should be_same_float_as (report.current_metric.utilities - report.previous_metric.utilities) }
+
+    it 'returns difference of report metrics utilities' do
+     report.utilities_diff.should be_same_float_as (report.current_metric.utilities - report.previous_metric.utilities)
+    end
   end
 
-  context 'when we create report from metric' do
+  describe 'Report#from_metric' do
     before do
-      Metric.delete_all
       @previous_metric = create(:metric, month: 5.month.ago)
       @source_metric = create(:metric, month: 4.month.ago)
     end
@@ -45,7 +44,7 @@ describe Report do
     its(:previous_metric) { should == @previous_metric }
   end
 
-  context 'when we want to group reports by months and year' do
+  describe 'Report#grouped_by_month' do
     before do
       Time.zone = 'UTC'
       (1..4).each do |month|
