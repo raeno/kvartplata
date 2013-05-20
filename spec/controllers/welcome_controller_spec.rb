@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe WelcomeController do
 
   after(:each) do
@@ -30,7 +29,7 @@ describe WelcomeController do
         end
       end
 
-      context 'and metric already entered' do
+      context 'and metric already exists' do
         before do
           create(:apartment_info)
           create(:metric, month: 2.month.ago)
@@ -38,7 +37,7 @@ describe WelcomeController do
           create(:metric, month: DateTime.now)
         end
 
-        it 'show report' do
+        it 'shows report' do
           get :index
           response.should be_success
         end
