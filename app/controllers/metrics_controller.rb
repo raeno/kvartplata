@@ -1,8 +1,7 @@
 class MetricsController < ApplicationController
-  # GET /metrics
-  # GET /metrics.json
 
   before_filter :authenticate_user!
+
   def index
     @metrics = Metric.all
 
@@ -12,19 +11,7 @@ class MetricsController < ApplicationController
     end
   end
 
-  # GET /metrics/1
-  # GET /metrics/1.json
-  def show
-    @metric = Metric.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @metric }
-    end
-  end
-
-  # GET /metrics/new
-  # GET /metrics/new.json
   def new
     @metric = Metric.new
     @metric.month = DateTime.now
@@ -35,7 +22,6 @@ class MetricsController < ApplicationController
     end
   end
 
-  # GET /metrics/1/edit
   def edit
     @metric = Metric.find(params[:id])
   end

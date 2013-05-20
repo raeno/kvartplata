@@ -12,7 +12,7 @@ describe MetricsController do
     end
 
     it "routes to #show" do
-      get("/metrics/1").should route_to("metrics#show", :id => "1")
+      get("/metrics/1").should_not route_to("metrics#show", :id => "1")
     end
 
     it "routes to #edit" do

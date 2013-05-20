@@ -3,7 +3,8 @@ Kvartplata::Application.routes.draw do
   devise_for :users, :controllers => {sessions: 'sessions'}
 
   scope '(:locale)' do
-    resources :metrics, :tariffs
+    resources :metrics, :except => [:show]
+    resources :tariffs
     resources :settings, :only => [:index] do
       collection do
         post :save
