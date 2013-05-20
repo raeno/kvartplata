@@ -67,6 +67,7 @@ class Metric < ActiveRecord::Base
   end
 
   def ==(another_metric)
+
     (self.hot_counter_kitchen.in_delta_with hot_counter_kitchen) &&
     (self.hot_counter_bathroom.in_delta_with hot_counter_bathroom) &&
     (self.cold_counter_bathroom.in_delta_with cold_counter_bathroom) &&
@@ -93,5 +94,4 @@ class Metric < ActiveRecord::Base
       @has_data ||= Metric.all.map { |metric| metric.month.strftime('%m/%Y') }
     end
   end
-
 end
