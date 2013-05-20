@@ -31,6 +31,8 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'email_spec'
 
+  gem 'accept_values_for'
+
   gem 'bullet'
   gem 'guard-rspec'
 end

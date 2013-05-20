@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :metric do
+  factory :metric, class: Metric do
     sequence(:cold_counter_kitchen) { |n| 24 + 3*n }
     sequence(:hot_counter_kitchen) { |n| 11 + 2*n }
     sequence(:cold_counter_bathroom) { |n| 32 + 4.2*n }
@@ -8,6 +8,24 @@ FactoryGirl.define do
     sequence(:month) { |n| (10-n).month.ago.round_to_month }
 
     report
-
   end
+
+  factory :metric_with_counters_10, class: Metric do
+    cold_counter_bathroom 10
+    cold_counter_kitchen  10
+    hot_counter_bathroom 10
+    hot_counter_kitchen 10
+    energy_counter 10
+    month 10.month.ago
+  end
+
+  factory :metric_with_counters_20, class: Metric do
+    cold_counter_bathroom 20
+    cold_counter_kitchen  20
+    hot_counter_bathroom 20
+    hot_counter_kitchen 20
+    energy_counter 20
+    month 9.month.ago
+  end
+
 end

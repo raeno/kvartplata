@@ -8,6 +8,9 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    accept_values_for (0.4.3)
+      activemodel (>= 3.0.0)
+      rspec
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
       mail (~> 2.5.3)
@@ -233,6 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  accept_values_for
   bootstrap-datepicker-markedDates-rails!
   bullet
   capistrano

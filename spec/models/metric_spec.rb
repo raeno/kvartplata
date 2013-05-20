@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Metric do
-  let(:simple_metric) { build(:metric) }
+  let(:simple_metric) { build :metric }
 
 
   after(:each) do
@@ -9,61 +9,65 @@ describe Metric do
     Metric.delete_all
   end
 
-  it 'utilities should be the sum of all water counters' do
-    all_water_counters_sum = simple_metric.cold_counter_kitchen + simple_metric.hot_counter_kitchen +
-                              simple_metric.cold_counter_bathroom + simple_metric.hot_counter_bathroom
+  describe '#utilities' do
+    it 'is sum of all water counters' do
+      all_water_counters_sum = simple_metric.cold_counter_kitchen + simple_metric.hot_counter_kitchen +
+          simple_metric.cold_counter_bathroom + simple_metric.hot_counter_bathroom
 
-    all_water_counters_sum.should be_same_float_as simple_metric.utilities
-  end
-
-  it 'total_cold_water should return sum of all cold counters' do
-    (simple_metric.cold_counter_kitchen + simple_metric.cold_counter_bathroom).should be_same_float_as simple_metric.total_cold_water
-  end
-
-  it 'total_hot_water should return sum of all hot counters' do
-    (simple_metric.hot_counter_kitchen + simple_metric.hot_counter_bathroom).should be_same_float_as simple_metric.total_hot_water
-  end
-
-  it 'all counters are positive numbers' do
-    counters = simple_metric.attributes.keys.find_all { |method| /^((?:cold|hot|energy)_counter.*)$/ =~ method }
-
-    counters.each do |counter|
-      method = counter + '='
-
-      simple_metric.send(method,-1)
-      simple_metric.invalid?.should be_true
-      simple_metric.errors.error_names[counter.to_sym].should include :greater_than
-
-      simple_metric.send(method,0)
-      simple_metric.invalid?.should be_true
-      simple_metric.errors.error_names[counter.to_sym].should include :greater_than
-
-      simple_metric.send(method,3)
-      simple_metric.valid?.should be_true
+      all_water_counters_sum.should be_same_float_as simple_metric.utilities
     end
   end
 
-  it 'difference with another metric is difference of its counters' do
-
-    first_metric = build(:metric,cold_counter_kitchen: 10, hot_counter_kitchen: 10,
-                         cold_counter_bathroom: 10, hot_counter_bathroom: 10,
-                         energy_counter: 100)
-
-    second_metric = build(:metric, cold_counter_kitchen: 20,  hot_counter_kitchen: 30,
-                          cold_counter_bathroom: 40, hot_counter_bathroom: 50,
-                          energy_counter: 200)
-
-
-    difference = second_metric - first_metric
-
-    difference.cold_counter_kitchen.should be_same_float_as 10
-    difference.hot_counter_kitchen.should be_same_float_as 20
-    difference.cold_counter_bathroom.should be_same_float_as 30
-    difference.hot_counter_bathroom.should be_same_float_as 40
-
-    difference.energy_counter.should be_same_float_as 100
-
+  describe '#total_cold_water' do
+    it 'is sum of all cold counters' do
+      sum = simple_metric.cold_counter_kitchen + simple_metric.cold_counter_bathroom
+      sum.should be_same_float_as simple_metric.total_cold_water
+    end
   end
+
+  describe '#total_hot_water' do
+    it 'is sum of all hot counters' do
+      sum = simple_metric.hot_counter_kitchen + simple_metric.hot_counter_bathroom
+      sum.should be_same_float_as simple_metric.total_hot_water
+    end
+  end
+
+  describe 'it validates that all counters are positive numbers' do
+    subject { build :metric }
+
+    it { should accept_values_for :cold_counter_kitchen, 10 }
+    it { should_not accept_values_for :cold_counter_kitchen, -10, -1, 0 }
+
+    it { should accept_values_for :hot_counter_kitchen, 10 }
+    it { should_not accept_values_for :hot_counter_kitchen, -10, -1, 0 }
+
+    it { should accept_values_for :cold_counter_bathroom, 10}
+    it { should_not accept_values_for :cold_counter_bathroom, -10, -1, 0 }
+
+    it { should accept_values_for :cold_counter_kitchen, 10 }
+    it { should_not accept_values_for :cold_counter_kitchen, -10, -1, 0 }
+
+    it { should accept_values_for :energy_counter, 10}
+    it { should_not accept_values_for :energy_counter, -10, -1, 0 }
+  end
+
+  context 'when substracting one metric from another' do
+
+    let(:first_metric) { build :metric_with_counters_10 }
+    let(:second_metric) { build :metric_with_counters_20 }
+
+    describe 'result counters are a differences of this metrics counter' do
+
+      subject { second_metric - first_metric }
+
+      its(:cold_counter_kitchen) { should be_same_float_as 10 }
+      its(:hot_counter_kitchen) { should be_same_float_as 10 }
+      its(:cold_counter_bathroom) { should be_same_float_as 10 }
+      its(:hot_counter_bathroom) { should be_same_float_as 10 }
+      its(:energy_counter) { should be_same_float_as 10 }
+    end
+  end
+
 
   # TODO: should be extended, bad test case
   it 'returns previous_record as Metric of previous_month' do
@@ -80,31 +84,53 @@ describe Metric do
     prev.should == metrics[0]
   end
 
-  it 'should not be payed twice' do
-    metric = create(:metric)
+  context 'when we already paid' do
+    before do
+      metric = create :metric
+      @payment_day = metric.month.change(:day => Metric::PAYMENT_DAY)
+    end
 
-    payment_day = metric.month.change(:day => Metric::PAYMENT_DAY)
-    Timecop.freeze payment_day-10.day
-    Metric.time_to_pay?.should be_false
+    context 'when payment date is far in future' do
+      before { Timecop.freeze @payment_day-10.day}
 
-    Timecop.freeze payment_day
-    Metric.time_to_pay?.should be_false
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
 
-    Timecop.freeze payment_day+5.day
-    Metric.time_to_pay?.should be_false
+    context 'when payment date is tomorrow' do
+      before { Timecop.freeze @payment_day-1.day}
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
+
+    context 'when payment date was few days ago' do
+      before { Timecop.freeze @payment_day+5.day}
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
   end
 
+  context 'when we had not paid yet' do
+    context 'when payment day is near' do
+      before { Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 1)) }
 
-  it 'does not ask to pay if there many time before payment date' do
-    Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 10))
-    Metric.time_to_pay?.should be_false
+      it 'ask to pay' do
+        Metric.time_to_pay?.should be_true
+      end
+    end
+
+    context 'when there is many time before payment date' do
+      before { Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 10)) }
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
   end
-
-  it 'ask to pay payment day is near' do
-    Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 1))
-    Metric.time_to_pay?.should be_true
-  end
-
-
-
 end
+
