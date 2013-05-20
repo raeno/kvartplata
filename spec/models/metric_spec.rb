@@ -68,20 +68,19 @@ describe Metric do
     end
   end
 
+  describe '#previous_record' do
 
-  # TODO: should be extended, bad test case
-  it 'returns previous_record as Metric of previous_month' do
-    Metric.delete_all
+    before { 10.times { create :metric } }
 
-    metrics = []
+    it 'returns previous month Metric' do
+      metric = Metric.find_by_month 5.month.ago.round_to_month
+      metric.previous_record.month.should == 6.month.ago.round_to_month
+    end
 
-    metrics << create(:metric, month: 3.month.ago)
-    metrics << create(:metric, month: 2.month.ago)
-    metrics << create(:metric, month: 1.month.ago)
-
-    prev = metrics[1].previous_record
-
-    prev.should == metrics[0]
+    it 'returns nil of there no previous metric' do
+      metric = Metric.find_by_month 9.month.ago.round_to_month
+      metric.previous_record.should be_nil
+    end
   end
 
   context 'when we already paid' do
