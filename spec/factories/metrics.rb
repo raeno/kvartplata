@@ -1,6 +1,8 @@
 FactoryGirl.define do
 
+
   factory :metric do
+
     sequence(:cold_counter_kitchen) { |n| 24 + 3*n }
     sequence(:hot_counter_kitchen) { |n| 11 + 2*n }
     sequence(:cold_counter_bathroom) { |n| 32 + 4.2*n }
@@ -28,4 +30,5 @@ FactoryGirl.define do
     energy_counter 20
     month 9.month.ago
   end
+
 end

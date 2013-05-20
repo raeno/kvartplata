@@ -89,6 +89,35 @@ describe Metric do
       @payment_day = metric.month.change(:day => Metric::PAYMENT_DAY)
     end
 
+    it { should accept_values_for :cold_counter_kitchen, 10 }
+    it { should_not accept_values_for :cold_counter_kitchen, -10, -1, 0 }
+
+    it { should accept_values_for :energy_counter, 10}
+    it { should_not accept_values_for :energy_counter, -10, -1, 0 }
+  end
+
+  context 'when substracting one metric from another' do
+
+    let(:first_metric) { build :metric_with_counters_10 }
+    let(:second_metric) { build :metric_with_counters_20 }
+
+    describe 'result counters are a differences of this metrics counter' do
+
+      subject { second_metric - first_metric }
+
+      its(:cold_counter_kitchen) { should be_same_float_as 10 }
+      its(:hot_counter_kitchen) { should be_same_float_as 10 }
+      its(:cold_counter_bathroom) { should be_same_float_as 10 }
+      its(:hot_counter_bathroom) { should be_same_float_as 10 }
+      its(:energy_counter) { should be_same_float_as 10 }
+    end
+  end
+
+
+  # TODO: should be extended, bad test case
+  it 'returns previous_record as Metric of previous_month' do
+    Metric.delete_all
+
     context 'when payment date is far in future' do
       before { Timecop.freeze @payment_day-10.day}
 
@@ -137,6 +166,55 @@ describe Metric do
       first_metric = build :metric_with_counters_10
       second_metric = build :metric_with_counters_10
       first_metric.should == second_metric
+    end
+  end
+
+  context 'when we already paid' do
+    before do
+      metric = create :metric
+      @payment_day = metric.month.change(:day => Metric::PAYMENT_DAY)
+    end
+
+    context 'when payment date is far in future' do
+      before { Timecop.freeze @payment_day-10.day}
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
+
+    context 'when payment date is tomorrow' do
+      before { Timecop.freeze @payment_day-1.day}
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
+
+    context 'when payment date was few days ago' do
+      before { Timecop.freeze @payment_day+5.day}
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
+    end
+  end
+
+  context 'when we had not paid yet' do
+    context 'when payment day is near' do
+      before { Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 1)) }
+
+      it 'ask to pay' do
+        Metric.time_to_pay?.should be_true
+      end
+    end
+
+    context 'when there is many time before payment date' do
+      before { Timecop.freeze(Time.now.change(:day => Metric::PAYMENT_DAY - 10)) }
+
+      it 'does not ask to pay' do
+        Metric.time_to_pay?.should be_false
+      end
     end
   end
 end
