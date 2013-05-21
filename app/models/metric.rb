@@ -1,4 +1,4 @@
-require "previous_record_value_validator"
+require 'previous_month_value_validator'
 
 class Metric < ActiveRecord::Base
   include ActiveModel::Validations
@@ -21,12 +21,12 @@ class Metric < ActiveRecord::Base
 
   before_validation :round_month
 
-  after_save :create_report
+  after_save :update_report
 
   PAYMENT_DAY = 20
 
 
-  def previous_record
+  def previous_month
     @previous ||= Metric.where('month < ?',month).last
   end
 
@@ -60,10 +60,15 @@ class Metric < ActiveRecord::Base
     self.month = month.round_to_month
   end
 
-  def create_report
-    report = Report.from_metric(self)
-    report.save unless report.nil?
-    self.report = report
+  def update_report
+    if self.report
+      self.report = Report.from_metric(self)
+      self.report.save if self.report
+    else
+      report = Report.from_metric(self)
+      report.save if report
+      self.report = report
+    end
   end
 
   def ==(another_metric)
