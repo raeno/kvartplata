@@ -206,7 +206,7 @@ describe MetricsController do
           it 'redirects to new_metric' do
             metric = Metric.create! valid_attributes
             put :update, {:id => metric.to_param, :metric => valid_attributes}
-            response.should redirect_to(metric)
+            response.should redirect_to new_metric_path
           end
         end
       end
