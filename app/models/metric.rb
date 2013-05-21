@@ -67,11 +67,11 @@ class Metric < ActiveRecord::Base
   end
 
   def ==(another_metric)
-    (self.hot_counter_kitchen == another_metric.hot_counter_kitchen) &&
-    (self.hot_counter_bathroom == another_metric.hot_counter_bathroom) &&
-    (self.cold_counter_bathroom == another_metric.cold_counter_bathroom) &&
-    (self.hot_counter_bathroom == another_metric.hot_counter_bathroom) &&
-    (self.energy_counter == another_metric.energy_counter) &&
+    (self.hot_counter_kitchen.in_delta_with hot_counter_kitchen) &&
+    (self.hot_counter_bathroom.in_delta_with hot_counter_bathroom) &&
+    (self.cold_counter_bathroom.in_delta_with cold_counter_bathroom) &&
+    (self.hot_counter_bathroom.in_delta_with hot_counter_bathroom) &&
+    (self.energy_counter.in_delta_with energy_counter) &&
     (self.month == another_metric.month)
   end
 
