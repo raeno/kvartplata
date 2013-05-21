@@ -70,7 +70,7 @@ describe Metric do
 
   describe '#previous_record' do
 
-    before { 10.times { create :metric } }
+    before { 10.times { |n| create :metric, :month => (10-n).month.ago } }
 
     it 'returns previous month Metric' do
       metric = Metric.find_by_month 5.month.ago.round_to_month
@@ -78,7 +78,7 @@ describe Metric do
     end
 
     it 'returns nil of there no previous metric' do
-      metric = Metric.find_by_month 9.month.ago.round_to_month
+      metric = Metric.find_by_month 10.month.ago.round_to_month
       metric.previous_record.should be_nil
     end
   end
