@@ -27,6 +27,8 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
 
+  config.use_transactional_fixtures = false
+
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
@@ -43,10 +45,20 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each) do
+  config.before :each do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before :each, :js => true do
+    DatabaseCleaner.strategy = :truncation, { pre_count: true }
+  end
+
+
+  config.before :each do
     DatabaseCleaner.start
   end
-  config.after(:each) do
+
+  config.after :each  do
     DatabaseCleaner.clean
   end
 
