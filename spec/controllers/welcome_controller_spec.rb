@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe WelcomeController do
 
-  after(:each) do
-    Timecop.return
-  end
+  before { create :tariff }
+  after { Timecop.return }
 
   context 'when user not logged in' do
     it 'redirects to sign_in' do
@@ -32,6 +31,7 @@ describe WelcomeController do
       context 'and metric already exists' do
         before do
           create(:apartment_info)
+
           create(:metric, month: 2.month.ago)
           create(:metric, month: 1.month.ago)
           create(:metric, month: DateTime.now)
