@@ -1,4 +1,4 @@
-#metrics_with_data{data: {metrics: Metric.has_data }}
+#metrics_with_data{data: {metrics: Metric.months_with_data }}
 = simple_form_for @metric, :html => { :class => 'form-horizontal'},  :validate => true  do |f|
 
   = f.input :month, label: 'месяц',  :as => :date_picker, :input_html => { :id => 'monthsDatepicker'}, :format => :short_month_year

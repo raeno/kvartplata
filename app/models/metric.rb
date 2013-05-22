@@ -98,8 +98,8 @@ class Metric < ActiveRecord::Base
       3.days.since.day >= PAYMENT_DAY
     end
 
-    def has_data
-      @has_data ||= Metric.all.map { |metric| metric.month.strftime('%m/%Y') }
+    def months_with_data
+      Metric.all.map { |metric| metric.month.strftime('%m/%Y') }
     end
   end
 end

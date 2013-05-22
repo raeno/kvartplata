@@ -12,6 +12,8 @@ describe Metric do
   it { respond_to :update_report }
   it { respond_to :report }
 
+  specify { Metric.respond_to? :months_with_data }
+
 
   describe '#utilities' do
     it 'is sum of all water counters' do
