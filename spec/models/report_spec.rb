@@ -28,8 +28,9 @@ describe Report do
 
   describe 'Report#from_metric' do
     before do
-      @previous_metric = create(:metric, month: 5.month.ago)
-      @source_metric = create(:metric, month: 4.month.ago)
+      create :tariff
+      @previous_metric = create :metric
+      @source_metric = create :metric
     end
 
     subject { Report.from_metric @source_metric }

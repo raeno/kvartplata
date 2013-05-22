@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :tariff do
-    start_date 2.years.ago
+    start_date 100.years.ago
     end_date 1000.years.since
     cold_water  12.74
     hot_water  90.86

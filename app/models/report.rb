@@ -26,18 +26,26 @@ class Report < ActiveRecord::Base
         :date => metric.month
     )
 
-    difference = report.difference
-
-    report.cold_water = difference.total_cold_water * tariff.cold_water
-    report.hot_water = difference.total_hot_water * tariff.hot_water
-    report.energy = difference.energy_counter * tariff.energy
-    report.utilities = difference.utilities * tariff.utilities
-    report.total = report.compute_total
+    report.fill_values
     report
   end
 
+  def fill_values
+    self.cold_water = difference.total_cold_water * tariff.cold_water
+    self.hot_water = difference.total_hot_water * tariff.hot_water
+    self.energy = difference.energy_counter * tariff.energy
+    self.utilities = difference.utilities * tariff.utilities
+    self.total = compute_total
+  end
+
+
   def compute_total
     cold_water + hot_water + utilities + energy
+  end
+
+  def update_report!
+    self.fill_values
+    self.save
   end
 
   def self.grouped_by_months

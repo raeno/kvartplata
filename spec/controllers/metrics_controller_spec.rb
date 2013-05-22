@@ -1,7 +1,12 @@
 require 'spec_helper'
 
 describe MetricsController do
+
   let(:valid_attributes) { attributes_for(:metric) }
+
+  before do
+    create :tariff
+  end
 
 
   describe 'GET #index' do
@@ -152,6 +157,7 @@ describe MetricsController do
     let(:metric) { create :metric }
 
     context 'when not logged in' do
+
       it 'redirects to sign in page' do
         put :update, {:id => metric.to_param, :metric => { 'these' => 'params'}}
         response.should redirect_to new_user_session_path
@@ -162,6 +168,7 @@ describe MetricsController do
       before { signed_in_as_a_valid_user}
 
       describe 'with valid params' do
+
         it 'updates the requested metric' do
           Metric.any_instance.should_receive(:update_attributes).with({ 'these' => 'params'})
           put :update, {:id => metric.to_param, :metric => { 'these' => 'params'}}
@@ -174,35 +181,26 @@ describe MetricsController do
         end
 
         context 'when applied to metric associated with report' do
+
           before do
-            @report = create(:report_with_metrics)
-          end
-
-          it 'updates report' do
-            metric = @report.current_metric
-            expect {
-              put :update, { :id => metric.to_param, :hot_counter_kitchen => 100}
-            }.to change(@report.hot_water)
-
-            #Metric.find(metric.id).hot_counter_kitchen.to_f
+            create :metric
+            create :metric
+            @metric = create :metric
           end
 
           it 'does not create new report' do
-            metric = @report.current_metric
             expect {
-              put :update, { :id => metric.to_param, :hot_counter_kitchen => 100}
-            }.to_not change(Metric,:count)
+              put :update, { :id => @metric.to_param, :metric => {:hot_counter_kitchen => 100}}
+            }.to_not change(Report,:count)
           end
 
-
-          it 'redirects to updated report' do
-            put :update, { :id => metric.to_param, :hot_counter_kitchen => 100}
-            report = assigns(:metric).report
-            response.should redirect_to report.month_year_path
-          end
         end
 
         context 'when no associated report for metric' do
+          before do
+            Metric.delete_all
+          end
+
           it 'redirects to new_metric' do
             metric = Metric.create! valid_attributes
             put :update, {:id => metric.to_param, :metric => valid_attributes}

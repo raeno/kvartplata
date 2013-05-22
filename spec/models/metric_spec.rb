@@ -9,6 +9,10 @@ describe Metric do
     Metric.delete_all
   end
 
+  it { respond_to :update_report }
+  it { respond_to :report }
+
+
   describe '#utilities' do
     it 'is sum of all water counters' do
       all_water_counters_sum = simple_metric.cold_counter_kitchen + simple_metric.hot_counter_kitchen +
@@ -68,18 +72,18 @@ describe Metric do
     end
   end
 
-  describe '#previous_record' do
+  describe '#previous_month' do
 
     before { 10.times { |n| create :metric, :month => (10-n).month.ago } }
 
     it 'returns previous month Metric' do
       metric = Metric.find_by_month 5.month.ago.round_to_month
-      metric.previous_record.month.should == 6.month.ago.round_to_month
+      metric.previous_month.month.should == 6.month.ago.round_to_month
     end
 
     it 'returns nil of there no previous metric' do
       metric = Metric.find_by_month 10.month.ago.round_to_month
-      metric.previous_record.should be_nil
+      metric.previous_month.should be_nil
     end
   end
 

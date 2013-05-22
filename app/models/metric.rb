@@ -17,17 +17,18 @@ class Metric < ActiveRecord::Base
 
   has_many :reports, :foreign_key => 'current_metric_id'
 
-  attr_accessor :report
-
   before_validation :round_month
 
   after_save :update_report
 
   PAYMENT_DAY = 20
 
-
   def previous_month
     @previous ||= Metric.where('month < ?',month).last
+  end
+
+  def next_month
+    @next ||= Metric.where('month > ?',month).first
   end
 
   def -(value)
@@ -61,14 +62,16 @@ class Metric < ActiveRecord::Base
   end
 
   def update_report
-    if self.report
-      self.report = Report.from_metric(self)
-      self.report.save if self.report
+    if self.reports.empty?
+      new_report = Report.from_metric(self)
+      new_report.save if new_report
     else
-      report = Report.from_metric(self)
-      report.save if report
-      self.report = report
+      self.reports.each { |r| r.update_report! }
     end
+  end
+
+  def report
+    Report.find_by_current_metric_id(self.to_param)
   end
 
   def ==(another_metric)
