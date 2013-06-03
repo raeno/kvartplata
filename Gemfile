@@ -29,6 +29,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.0'
 
   gem 'capybara'
+  gem 'capybara-webkit'
 
   gem 'database_cleaner'
   gem 'email_spec'
@@ -37,6 +38,9 @@ group :test, :development do
 
   gem 'bullet'
   gem 'guard-rspec'
+
+  gem 'irbtools'
+
 end
 
 
@@ -56,13 +60,6 @@ gem 'devise'
 gem 'thin'
 
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
 gem 'unicorn'
 
 # Deploy with Capistrano
@@ -70,7 +67,11 @@ gem 'capistrano'
 
 gem 'chronic'
 
+<<<<<<< HEAD
 gem 'whenever', :require => false
 
 # To use debugger
 #gem 'debugger'
+=======
+gem 'whenever', :require => false
+>>>>>>> Updated some gems. Added irbtool gem.
