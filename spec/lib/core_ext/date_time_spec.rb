@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CoreExt do
+describe DateTime do
 
   it 'round to month should remain only month and year in datetime' do
     rounded_date = DateTime.now.round_to_month
