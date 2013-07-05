@@ -47,12 +47,15 @@ describe Report do
 
   context 'when we want to group reports by months and year' do
     before do
+      Time.zone = 'UTC'
       (1..4).each do |month|
-        create(:report, :date => DateTime.now.change(:day =>1, :month => month, :year => 2013) )
+        date = DateTime.now.change(:day => 1, :month => month, :year => 2013, :offset => 0)
+        create(:report, :date => date )
       end
 
       (1..6).each do |month|
-        create(:report, :date => DateTime.now.change(:day => 1, :month => month, :year => 2012))
+        date = DateTime.now.change(:day => 1, :month => month, :year => 2012, :offset => 0)
+        create(:report, :date => date )
       end
 
       @grouped_reports = Report.grouped_by_months
