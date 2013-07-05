@@ -6,8 +6,6 @@ gem 'rvm'
 gem 'rvm-capistrano'
 gem 'russian', '~> 0.6.0'
 
-gem 'test-unit'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -51,6 +49,8 @@ gem 'execjs'
 
 gem 'devise'
 
+gem 'thin'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -68,8 +68,5 @@ gem 'chronic'
 
 gem 'whenever', :require => false
 
-gem 'spec_converter'
-
-
 # To use debugger
-# gem 'debugger'
+#gem 'debugger'
