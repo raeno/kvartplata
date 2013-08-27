@@ -67,11 +67,7 @@ gem 'capistrano'
 
 gem 'chronic'
 
-<<<<<<< HEAD
 gem 'whenever', :require => false
 
 # To use debugger
 #gem 'debugger'
-=======
-gem 'whenever', :require => false
->>>>>>> Updated some gems. Added irbtool gem.

@@ -1,6 +1,4 @@
 FactoryGirl.define do
-
-
   factory :metric do
 
     sequence(:cold_counter_kitchen) { |n| 24 + 3*n }
