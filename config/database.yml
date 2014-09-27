@@ -6,7 +6,7 @@ development:
   database: kvartplata_development
   pool: 5
   username: rails_kvartplata
-  password: 2QitVpdFS5cvHzZNPn
+  password: rails_kvartplata
   host: localhost
   timeout: 5000
 
@@ -18,17 +18,6 @@ test:
   database: kvartplata_test
   pool: 5
   username: rails_kvartplata
-  password: 2QitVpdFS5cvHzZNPn
-  host: localhost
-  timeout: 5000
-
-production:
-  adapter: postgresql
-  encoding: utf8
-  reconnect: false
-  database: kvartplata_production
-  pool: 5
-  username: rails_kvartplata
-  password: 2QitVpdFS5cvHzZNPn
+  password: rails_kvartplata
   host: localhost
   timeout: 5000
