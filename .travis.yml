@@ -3,6 +3,6 @@ language: ruby
 before_script:
 - psql -U postgres -c "create user rails_kvartplata with password 'rails_kvartplata' SUPERUSER;"
 - RAILS_ENV=test bundle exec rake db:create
-- bundle exec rake db:migrate
+- RAILS_ENV=test bundle exec rake db:migrate
 
 script: bundle exec rake spec
