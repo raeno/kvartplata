@@ -17,9 +17,7 @@ public/assets
 /log/*.log
 /tmp
 .idea/
-config/database.yml
-config/smtp_settings.yml
-config/credentials.yml
+
 
 # Ignore SimpleCov coverage report
 coverage/
